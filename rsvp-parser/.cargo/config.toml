@@ -1,0 +1,13 @@
+[target.wasm32-unknown-unknown]
+# getrandom WASM backend configuration for wasm32-unknown-unknown.
+#
+# getrandom 0.2.x: used rustflag cfg approach:
+#   rustflags = ["--cfg", "getrandom_backend=\"wasm_js\""]
+#
+# getrandom 0.3.x (current): requires Cargo feature on the crate that
+# directly depends on getrandom. Enable the `wasm_js` feature on lopdf:
+#   lopdf = { version = "0.38", features = ["wasm_js"] }
+#
+# The getrandom_backend rustflag is documented here for reference but NOT
+# active — it was the getrandom 0.2.x approach. Use Cargo features for 0.3.x.
+# rustflags = ["--cfg", "getrandom_backend=\"wasm_js\""]

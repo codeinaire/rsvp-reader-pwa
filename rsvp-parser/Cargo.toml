@@ -1,0 +1,15 @@
+[workspace]
+members = ["crates/rsvp-parser"]
+resolver = "2"
+
+[profile.release]
+opt-level = "z"        # Optimize for size — smallest binary (not "s")
+lto = true             # Link-time optimization — removes dead code across crates
+codegen-units = 1      # Required for full LTO
+panic = "abort"        # WASM cannot unwind; saves ~20% binary size
+strip = true           # Strip debug symbols
+
+[workspace.lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"

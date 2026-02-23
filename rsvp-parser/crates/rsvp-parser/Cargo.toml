@@ -1,0 +1,30 @@
+[package]
+name = "rsvp-parser"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+# cdylib = compiled to .wasm for browser use
+# rlib = allows `cargo test` to run (tests need a normal Rust lib)
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz", "--enable-bulk-memory"]
+
+[dependencies]
+wasm-bindgen = "0.2"
+serde = { version = "1", features = ["derive"] }
+serde-wasm-bindgen = "0.6"
+
+# PDF extraction — optional, gated by feature flag.
+# pdf-extract 0.10.0 depends on lopdf 0.38+ with wasm_js feature.
+# WASM compilation is validated in Plan 02 spike.
+# Enable with: cargo check --features pdf --target wasm32-unknown-unknown
+# If spike fails, replace with pdfium-render.
+pdf-extract = { version = "0.10", optional = true }
+
+[features]
+# pdf is opt-in (not default) so that cargo check without flags validates the stub cleanly.
+# The PDF spike (Plan 02) enables this feature and validates WASM compilation.
+default = []
+pdf = ["dep:pdf-extract"]
