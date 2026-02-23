@@ -9,7 +9,7 @@ crate-type = ["cdylib", "rlib"]
 # rlib = allows `cargo test` to run (tests need a normal Rust lib)
 
 [package.metadata.wasm-pack.profile.release]
-wasm-opt = ["-Oz", "--enable-bulk-memory"]
+wasm-opt = ["-Oz", "--enable-bulk-memory", "--enable-nontrapping-float-to-int"]
 
 [dependencies]
 wasm-bindgen = "0.2"
@@ -17,14 +17,14 @@ serde = { version = "1", features = ["derive"] }
 serde-wasm-bindgen = "0.6"
 
 # PDF extraction — optional, gated by feature flag.
-# pdf-extract 0.10.0 depends on lopdf 0.38+ with wasm_js feature.
-# WASM compilation is validated in Plan 02 spike.
-# Enable with: cargo check --features pdf --target wasm32-unknown-unknown
-# If spike fails, replace with pdfium-render.
+# getrandom 0.3.x requires wasm_js Cargo feature on lopdf (not rustflags).
+# See .cargo/config.toml for the 0.2.x vs 0.3.x migration note.
 pdf-extract = { version = "0.10", optional = true }
+lopdf = { version = "0.38", optional = true, features = ["wasm_js"] }
 
 [features]
-# pdf is opt-in (not default) so that cargo check without flags validates the stub cleanly.
-# The PDF spike (Plan 02) enables this feature and validates WASM compilation.
-default = []
-pdf = ["dep:pdf-extract"]
+# pdf feature is enabled by default for spike validation (Plan 02).
+# If pdf-extract fails WASM compilation, this reverts to default = [] and
+# the fallback (pdfium-render or PDF.js) is documented in SPIKE-DECISION.md.
+default = ["pdf"]
+pdf = ["dep:pdf-extract", "dep:lopdf"]
