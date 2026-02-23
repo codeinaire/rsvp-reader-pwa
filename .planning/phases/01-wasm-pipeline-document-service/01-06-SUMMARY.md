@@ -12,7 +12,8 @@ requires:
 provides:
   - "Production build passing — WASM, Worker, React app all compile cleanly"
   - "WASM bundle confirmed at 1018 KB (under 2 MB target) as a separate asset"
-  - "Preview server at localhost:4173 for human verification of all four Phase 1 criteria"
+  - "Human-verified Phase 1: all four success criteria confirmed passing in production build"
+  - "Phase 1 declared complete and shippable — Phase 2 planning unblocked"
 affects: [phase-02-rsvp-engine, all-future-phases]
 
 # Tech tracking
@@ -46,35 +47,48 @@ requirements-completed:
   - IMPT-04
 
 # Metrics
-duration: ~5min
+duration: ~39min
 completed: 2026-02-23
 ---
 
 # Phase 1 Plan 06: Phase 1 Human Verification Summary
 
-**Production build passing: 1018 KB WASM bundle (under 2 MB target) deployed as separate asset; preview server running at localhost:4173 for Phase 1 end-to-end human verification**
+**All four Phase 1 success criteria human-verified in production build: paste-text flow, text-layer PDF extraction, scanned-PDF error banner, and non-blocking WASM init — Phase 1 complete**
 
 ## Performance
 
-- **Duration:** ~5 min
+- **Duration:** ~39 min (including human verification time at localhost:4173)
 - **Started:** 2026-02-23T05:55:47Z
-- **Completed:** 2026-02-23T06:01:00Z (estimated)
-- **Tasks:** 1 of 2 complete (Task 2 is the human-verify checkpoint)
+- **Completed:** 2026-02-23T06:34:42Z
+- **Tasks:** 2 of 2 complete
 - **Files modified:** 5 (App.tsx, RSVPPlaceholder.tsx, parser-worker.ts, vite.config.ts, index.html)
 
 ## Accomplishments
 - Production build (`npm run build`) exits successfully with code 0
 - WASM binary present in `dist/assets/rsvp_parser_bg-BHP_P2Kb.wasm` as a separate asset (not inlined into JS)
 - WASM bundle size: 1,042,568 bytes (1018 KB) — well under the 2 MB target
-- Production preview server running at http://localhost:4173
+- Human verified all four Phase 1 success criteria at localhost:4173 (production preview)
+- Phase 1 declared complete and shippable — Phase 2 RSVP engine planning unblocked
+
+## Phase 1 Verification Results
+
+All four Phase 1 success criteria from ROADMAP.md confirmed by human:
+
+| # | Criterion | Result |
+|---|-----------|--------|
+| 1 | Paste text flow: entry -> preview (word count) -> placeholder RSVP -> back navigation | PASS |
+| 2 | Text-layer PDF: extracted to readable text with word count visible | PASS |
+| 3 | Scanned/image PDF: actionable error banner, auto-dismisses after ~4s | PASS |
+| 4 | WASM non-blocking: app renders immediately, import button enables when WASM ready | PASS |
 
 ## Task Commits
 
 Each task was committed atomically:
 
 1. **Task 1: Production build and pre-verification checks** - `ec3d50d` (fix)
+2. **Task 2: checkpoint:human-verify — Phase 1 human verification** - Approved (no code commit — verification only)
 
-**Plan metadata:** (pending — after human verify checkpoint is completed)
+**Plan metadata:** (this SUMMARY commit)
 
 ## Files Created/Modified
 - `src/App.tsx` - Removed unused `import React from 'react'` (modern jsx-react transform)
@@ -128,10 +142,11 @@ Each task was committed atomically:
 None - no external service configuration required.
 
 ## Next Phase Readiness
-- Phase 1 production build is verified and preview server is running
-- **Human checkpoint required:** All four Phase 1 success criteria need human verification at http://localhost:4173 before Phase 2 begins
-- Phase 2 (RSVP playback engine) is ready to start once human approves Phase 1
-- The `RSVPPlaceholder` at `/read` is the replacement target for Phase 2
+- Phase 1 is complete and shippable — all success criteria verified by human
+- All Phase 1 requirements satisfied: DOCF-01 (PDF import with scanned-PDF error path) and IMPT-04 (paste text and begin reading)
+- Phase 2 (RSVP playback engine) can begin immediately — replace `RSVPPlaceholder` at `/read` with the real RSVP engine
+- Phase 3 can wire the settings icon in EntryScreen header (aria-label="Settings" button already in place)
+- STATE.md architecture decisions, pitfall notes, and tech decisions carry forward to Phase 2
 
 ## Self-Check: PASSED
 

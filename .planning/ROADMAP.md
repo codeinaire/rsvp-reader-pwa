@@ -9,7 +9,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: WASM Pipeline + Document Service** - Prove Rust-to-WASM compilation works, validate PDF crate selection, establish the parsing infrastructure that all import flows depend on
+- [x] **Phase 1: WASM Pipeline + Document Service** - Prove Rust-to-WASM compilation works, validate PDF crate selection, establish the parsing infrastructure that all import flows depend on
 - [ ] **Phase 2: RSVP Playback Engine** - Build the core reading mechanic: ORP display, timing scheduler, playback controls, and progress tracking
 - [ ] **Phase 3: Import UI + Reading View** - Wire real document import to the reader and deliver the complete dual-view reading experience
 - [ ] **Phase 4: PWA + Web Share Target** - Make the app installable, offline-capable, and reachable via the OS share sheet with iOS fallback
@@ -38,9 +38,9 @@ Plans:
 - [x] 01-01-PLAN.md — Project scaffold: Vite 7 + React + TypeScript app with WASM plugins and Rust workspace
 - [x] 01-02-PLAN.md — PDF crate spike: attempt wasm-pack build, measure bundle, document crate decision (has checkpoint)
 - [x] 01-03-PLAN.md — Zustand store + React Router routing shell (parallel with spike)
-- [ ] 01-04-PLAN.md — WASM Worker pipeline: worker-types, parser-worker, DocumentService, tokenize, format-detect
-- [ ] 01-05-PLAN.md — UI screens: EntryScreen, TextPreview, RSVPPlaceholder + wire App.tsx
-- [ ] 01-06-PLAN.md — Phase 1 human verification against all four success criteria (has checkpoint)
+- [x] 01-04-PLAN.md — WASM Worker pipeline: worker-types, parser-worker, DocumentService, tokenize, format-detect
+- [x] 01-05-PLAN.md — UI screens: EntryScreen, TextPreview, RSVPPlaceholder + wire App.tsx
+- [x] 01-06-PLAN.md — Phase 1 human verification against all four success criteria (has checkpoint)
 
 ---
 
@@ -104,7 +104,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. WASM Pipeline + Document Service | 5/6 | In Progress|  |
+| 1. WASM Pipeline + Document Service | 6/6 | Complete | 2026-02-23 |
 | 2. RSVP Playback Engine | 0/? | Not started | - |
 | 3. Import UI + Reading View | 0/? | Not started | - |
 | 4. PWA + Web Share Target | 0/? | Not started | - |
@@ -141,4 +141,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-02-23*
-*Last updated: 2026-02-23 — 01-02 checkpoint approved: pdf-extract spike confirmed (3/6 Phase 1 plans done: 01-01, 01-02, 01-03)*
+*Last updated: 2026-02-23 — Phase 1 complete: all four success criteria human-verified in production build (6/6 plans done)*
