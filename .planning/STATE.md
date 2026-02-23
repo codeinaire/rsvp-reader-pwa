@@ -1,7 +1,7 @@
 # Project State: RSVP Reader
 
 **Last updated:** 2026-02-23
-**Updated by:** execute-plan (01-05)
+**Updated by:** execute-plan (01-06)
 
 ---
 
@@ -18,16 +18,16 @@
 ## Current Position
 
 **Phase:** 1 — WASM Pipeline + Document Service
-**Plan:** 05 complete — Phase 1 all plans done
-**Status:** Phase 1 complete
+**Plan:** 06 in progress (at human-verify checkpoint) — build complete, preview server running at localhost:4173
+**Status:** Phase 1 awaiting human verification
 
 ```
 Progress: [ ][ ][ ][ ] 0/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-23T05:53:52.243Z
-**Stopped at:** Completed 01-05-PLAN.md
+**Last session:** 2026-02-23T06:01:33.024Z
+**Stopped at:** Checkpoint: Task 2 of 01-06-PLAN.md — awaiting human verification at localhost:4173
 
 ---
 
@@ -35,7 +35,7 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| WASM bundle size | < 2 MB per module | Not measured |
+| WASM bundle size | < 2 MB per module | 1018 KB (OK) |
 | RSVP timing accuracy | 100 words at 300 WPM = 20s ± 1s | Not measured |
 | First paint (WASM non-blocking) | No WASM init before ReactDOM.render | Implemented (scaffold) |
 | Lighthouse PWA score | Installable + offline | Not measured |
@@ -49,6 +49,7 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
 | Phase 01 P02 | 10min | 1 tasks | 6 files |
 | Phase 01 P04 | 10min | 2 tasks | 5 files |
 | Phase 01 P05 | 3min | 2 tasks | 4 files |
+| Phase 01 P06 | 5min | 1 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -101,6 +102,9 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-23 | Paste text as collapsible details/summary | Secondary import path not prominent per CONTEXT.md user decision; friction-heavy on mobile so not the hero action |
 | 2026-02-23 | Start Reading button above preview text in TextPreview | User decision from CONTEXT.md — CTA prominent before user must scroll past content |
 | 2026-02-23 | cancelRef boolean for cancel signal | documentService Worker has no abort mechanism; boolean ref is the minimal cancel pattern |
+| 2026-02-23 | worker.format = 'es' required in vite.config.ts | WASM static imports cause top-level await; iife worker format rejects this — must use 'es' |
+| 2026-02-23 | vite-plugin-top-level-await removed | Incompatible with Vite 7 worker bundling (path.join crash); not needed since bundler-target WASM has no init() export |
+| 2026-02-23 | Bundler-target WASM pkg has no init() | wasm-pack --target bundler loads WASM via static import handled by vite-plugin-wasm — no async init call needed |
 
 ---
 
@@ -121,9 +125,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 1 is complete. All 5 plans executed. Begin Phase 2 (RSVP engine) — the RSVPPlaceholder at `/read` is ready to be replaced with the real playback engine.
+**To resume work:** Plan 01-06 is at the human-verify checkpoint (Task 2). Production build passes, preview server was running at localhost:4173. Human must verify all four Phase 1 criteria, then reply "Phase 1 approved" or describe failures. After approval, update STATE.md to mark Phase 1 complete and begin Phase 2.
 
-**Next action:** Begin Phase 2 — RSVP playback engine.
+**Next action:** Human verification of Phase 1 at http://localhost:4173, then begin Phase 2 — RSVP playback engine.
 
 ---
 
@@ -132,3 +136,4 @@ None at this time.
 *Updated: 2026-02-23 by execute-plan (01-03)*
 *Updated: 2026-02-23 by execute-plan (01-04)*
 *Updated: 2026-02-23 by execute-plan (01-05)*
+*Updated: 2026-02-23 by execute-plan (01-06)*
