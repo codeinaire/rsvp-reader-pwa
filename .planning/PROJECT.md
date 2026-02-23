@@ -46,6 +46,7 @@ One word at a time, eye never moves — read any content faster with zero fricti
 - **Platform**: PWA first — enables share target, installable, no app store needed
 - **Scope**: Session only for v1 — no backend, no auth, no persistence
 - **Compatibility**: Must work on both desktop and mobile browsers (responsive layout)
+- **Dependencies**: All packages must use latest stable versions at time of implementation — verify against npm/crates.io registries, never rely on training data version numbers
 
 ## Key Decisions
 
