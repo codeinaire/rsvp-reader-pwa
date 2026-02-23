@@ -28,7 +28,7 @@
 
 ### Document Formats
 
-- [ ] **DOCF-01**: User can import and read PDF files (text-layer PDFs; scanned/image PDFs show a clear unsupported message)
+- [x] **DOCF-01**: User can import and read PDF files (text-layer PDFs; scanned/image PDFs show a clear unsupported message)
 
 ### Reading View
 

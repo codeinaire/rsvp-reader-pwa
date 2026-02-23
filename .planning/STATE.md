@@ -26,8 +26,8 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-23T05:10:40Z
-**Stopped at:** Completed 01-03-PLAN.md (Zustand store + React Router routing shell)
+**Last session:** 2026-02-23T05:13:52.074Z
+**Stopped at:** Paused at checkpoint:human-verify in 01-02-PLAN.md (PDF crate spike complete, awaiting approval)
 
 ---
 
@@ -46,6 +46,7 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
 | 01-03 | 2min | 2 | 4 |
 
 ---
+| Phase 01 P02 | 10min | 1 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -92,6 +93,8 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-23 | Placeholder components inline in App.tsx | Plan 04 swaps them for real component files — routing structure remains unchanged |
 | 2026-02-23 | BrowserRouter over HashRouter | Clean URL paths required for future PWA manifest and service worker path handling |
 | 2026-02-23 | Phase 1 store shape — no Phase 2 fields yet | wordList/documentTitle/isWorkerReady only; Phase 2 adds currentWordIndex, wpm, isPlaying |
+| 2026-02-23 | pdf-extract chosen for PDF WASM (spike confirmed) | Compiled cleanly with lopdf wasm_js feature; 1018 KB bundle under 2 MB target; pdfium-render fallback not needed |
+| 2026-02-23 | wasm-opt needs --enable-nontrapping-float-to-int for pdf-extract | pdf-extract uses i32.trunc_sat_f64_s instructions; added flag to Cargo.toml [package.metadata.wasm-pack.profile.release] |
 
 ---
 
