@@ -133,6 +133,16 @@ None - no external service configuration required.
 **Concerns:**
 - None. pdf-extract compiled cleanly, bundle is within target.
 
+## Self-Check: PASSED
+
+- FOUND: 01-02-SUMMARY.md
+- FOUND: SPIKE-DECISION.md
+- FOUND: rsvp-parser/crates/rsvp-parser/src/pdf.rs
+- FOUND: rsvp-parser/crates/rsvp-parser/pkg/rsvp_parser_bg.wasm (1018 KB)
+- FOUND: de95b41 (Task 1 commit)
+- FOUND: afb7478 (prior docs commit)
+- FOUND: 19f1e43 (checkpoint approval commit)
+
 ---
 *Phase: 01-wasm-pipeline-document-service*
 *Completed: 2026-02-23 (checkpoint approved)*
