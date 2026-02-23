@@ -32,7 +32,15 @@
 3. A scanned or image-only PDF triggers a visible, user-facing error message explaining why it cannot be read
 4. The compiled WASM bundle is under 2 MB and does not block the initial page render (parser initializes lazily)
 
-**Plans:** TBD
+**Plans:** 6 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffold: Vite 7 + React + TypeScript app with WASM plugins and Rust workspace
+- [ ] 01-02-PLAN.md — PDF crate spike: attempt wasm-pack build, measure bundle, document crate decision (has checkpoint)
+- [ ] 01-03-PLAN.md — Zustand store + React Router routing shell (parallel with spike)
+- [ ] 01-04-PLAN.md — WASM Worker pipeline: worker-types, parser-worker, DocumentService, tokenize, format-detect
+- [ ] 01-05-PLAN.md — UI screens: EntryScreen, TextPreview, RSVPPlaceholder + wire App.tsx
+- [ ] 01-06-PLAN.md — Phase 1 human verification against all four success criteria (has checkpoint)
 
 ---
 
@@ -96,7 +104,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. WASM Pipeline + Document Service | 0/? | Not started | - |
+| 1. WASM Pipeline + Document Service | 0/6 | In progress | - |
 | 2. RSVP Playback Engine | 0/? | Not started | - |
 | 3. Import UI + Reading View | 0/? | Not started | - |
 | 4. PWA + Web Share Target | 0/? | Not started | - |
@@ -133,4 +141,4 @@
 ---
 
 *Roadmap created: 2026-02-23*
-*Last updated: 2026-02-23 after initial creation*
+*Last updated: 2026-02-23 — Phase 1 plans created (6 plans, 5 waves)*
