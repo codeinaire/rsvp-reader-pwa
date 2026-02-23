@@ -32,7 +32,7 @@
 3. A scanned or image-only PDF triggers a visible, user-facing error message explaining why it cannot be read
 4. The compiled WASM bundle is under 2 MB and does not block the initial page render (parser initializes lazily)
 
-**Plans:** 4/6 plans executed
+**Plans:** 5/6 plans executed
 
 Plans:
 - [x] 01-01-PLAN.md — Project scaffold: Vite 7 + React + TypeScript app with WASM plugins and Rust workspace
@@ -104,7 +104,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. WASM Pipeline + Document Service | 4/6 | In Progress|  |
+| 1. WASM Pipeline + Document Service | 5/6 | In Progress|  |
 | 2. RSVP Playback Engine | 0/? | Not started | - |
 | 3. Import UI + Reading View | 0/? | Not started | - |
 | 4. PWA + Web Share Target | 0/? | Not started | - |

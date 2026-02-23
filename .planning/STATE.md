@@ -1,7 +1,7 @@
 # Project State: RSVP Reader
 
 **Last updated:** 2026-02-23
-**Updated by:** execute-plan (01-04)
+**Updated by:** execute-plan (01-05)
 
 ---
 
@@ -18,16 +18,16 @@
 ## Current Position
 
 **Phase:** 1 — WASM Pipeline + Document Service
-**Plan:** 04 complete, starting 05
-**Status:** In progress
+**Plan:** 05 complete — Phase 1 all plans done
+**Status:** Phase 1 complete
 
 ```
 Progress: [ ][ ][ ][ ] 0/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-23T05:48:52.849Z
-**Stopped at:** Completed 01-04-PLAN.md
+**Last session:** 2026-02-23T05:53:52.243Z
+**Stopped at:** Completed 01-05-PLAN.md
 
 ---
 
@@ -48,6 +48,7 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
 ---
 | Phase 01 P02 | 10min | 1 tasks | 6 files |
 | Phase 01 P04 | 10min | 2 tasks | 5 files |
+| Phase 01 P05 | 3min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -97,6 +98,9 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-23 | pdf-extract chosen for PDF WASM (spike confirmed) | Compiled cleanly with lopdf wasm_js feature; 1018 KB bundle under 2 MB target; pdfium-render fallback not needed |
 | 2026-02-23 | wasm-opt needs --enable-nontrapping-float-to-int for pdf-extract | pdf-extract uses i32.trunc_sat_f64_s instructions; added flag to Cargo.toml [package.metadata.wasm-pack.profile.release] |
 | 2026-02-23 | ParseMessageType as const object (not enum) | TypeScript 5.9 erasableSyntaxOnly forbids runtime enum emit; const object with type alias provides identical ergonomics |
+| 2026-02-23 | Paste text as collapsible details/summary | Secondary import path not prominent per CONTEXT.md user decision; friction-heavy on mobile so not the hero action |
+| 2026-02-23 | Start Reading button above preview text in TextPreview | User decision from CONTEXT.md — CTA prominent before user must scroll past content |
+| 2026-02-23 | cancelRef boolean for cancel signal | documentService Worker has no abort mechanism; boolean ref is the minimal cancel pattern |
 
 ---
 
@@ -117,9 +121,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Run Plan 05 (EntryScreen component) — `documentService` singleton is ready; EntryScreen.tsx can call `parseFile()`, `parseText()`, `ensureReady()`, and dispatch `setDocument` to navigate to `/preview`.
+**To resume work:** Phase 1 is complete. All 5 plans executed. Begin Phase 2 (RSVP engine) — the RSVPPlaceholder at `/read` is ready to be replaced with the real playback engine.
 
-**Next action:** Execute 01-05-PLAN.md (EntryScreen with WASM document import).
+**Next action:** Begin Phase 2 — RSVP playback engine.
 
 ---
 
@@ -127,3 +131,4 @@ None at this time.
 *Updated: 2026-02-23 by execute-plan (01-01)*
 *Updated: 2026-02-23 by execute-plan (01-03)*
 *Updated: 2026-02-23 by execute-plan (01-04)*
+*Updated: 2026-02-23 by execute-plan (01-05)*
