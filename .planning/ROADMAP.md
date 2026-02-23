@@ -36,7 +36,7 @@
 
 Plans:
 - [x] 01-01-PLAN.md — Project scaffold: Vite 7 + React + TypeScript app with WASM plugins and Rust workspace
-- [ ] 01-02-PLAN.md — PDF crate spike: attempt wasm-pack build, measure bundle, document crate decision (has checkpoint)
+- [x] 01-02-PLAN.md — PDF crate spike: attempt wasm-pack build, measure bundle, document crate decision (has checkpoint)
 - [x] 01-03-PLAN.md — Zustand store + React Router routing shell (parallel with spike)
 - [ ] 01-04-PLAN.md — WASM Worker pipeline: worker-types, parser-worker, DocumentService, tokenize, format-detect
 - [ ] 01-05-PLAN.md — UI screens: EntryScreen, TextPreview, RSVPPlaceholder + wire App.tsx
@@ -141,4 +141,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-02-23*
-*Last updated: 2026-02-23 — 01-03 complete: Zustand store + React Router routing shell (2/6 Phase 1 plans done)*
+*Last updated: 2026-02-23 — 01-02 checkpoint approved: pdf-extract spike confirmed (3/6 Phase 1 plans done: 01-01, 01-02, 01-03)*
