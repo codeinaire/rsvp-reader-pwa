@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import EntryScreen from './components/EntryScreen/EntryScreen'
 import TextPreview from './components/TextPreview/TextPreview'
