@@ -91,8 +91,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | IMPT-01 | Phase 4 | Pending |
 | IMPT-02 | Phase 3 | Pending |
 | IMPT-03 | Phase 3 | Pending |
-| IMPT-04 | Phase 1 | Pending |
-| DOCF-01 | Phase 1 | Pending |
+| IMPT-04 | Phase 1 | In Progress (store + routing done; UI in 01-05) |
+| DOCF-01 | Phase 1 | In Progress (store + routing done; WASM pipeline in 01-04) |
 | VIEW-01 | Phase 3 | Pending |
 | VIEW-02 | Phase 3 | Pending |
 | VIEW-03 | Phase 3 | Pending |
@@ -108,4 +108,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-23*
-*Last updated: 2026-02-23 after roadmap creation — traceability populated*
+*Last updated: 2026-02-23 after 01-03 — IMPT-04, DOCF-01 in progress (store + routing complete)*

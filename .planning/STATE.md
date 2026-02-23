@@ -1,7 +1,7 @@
 # Project State: RSVP Reader
 
 **Last updated:** 2026-02-23
-**Updated by:** execute-plan (01-01)
+**Updated by:** execute-plan (01-03)
 
 ---
 
@@ -18,7 +18,7 @@
 ## Current Position
 
 **Phase:** 1 — WASM Pipeline + Document Service
-**Plan:** 01 complete, starting 02
+**Plan:** 03 complete, starting 04
 **Status:** In progress
 
 ```
@@ -26,8 +26,8 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-23T05:06:01Z
-**Stopped at:** Completed 01-01-PLAN.md (Vite + Rust scaffold)
+**Last session:** 2026-02-23T05:10:40Z
+**Stopped at:** Completed 01-03-PLAN.md (Zustand store + React Router routing shell)
 
 ---
 
@@ -43,6 +43,7 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | 01-01 | 6min | 2 | 23 |
+| 01-03 | 2min | 2 | 4 |
 
 ---
 
@@ -88,6 +89,9 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-23 | 4-phase structure at standard depth | 20 requirements in 4 natural delivery boundaries (pipeline → engine → UI → PWA); each phase is independently verifiable |
 | 2026-02-23 | pdf-extract not default-enabled in scaffold | getrandom 0.3.x requires Cargo wasm_js feature (not rustflag); spike (Plan 02) validates PDF WASM before enabling |
 | 2026-02-23 | Node.js 22.22.0 via nvm for development | Vite 7 requires Node 20.19+; dev machine had 20.16; used nvm to switch to 22.22.0 |
+| 2026-02-23 | Placeholder components inline in App.tsx | Plan 04 swaps them for real component files — routing structure remains unchanged |
+| 2026-02-23 | BrowserRouter over HashRouter | Clean URL paths required for future PWA manifest and service worker path handling |
+| 2026-02-23 | Phase 1 store shape — no Phase 2 fields yet | wordList/documentTitle/isWorkerReady only; Phase 2 adds currentWordIndex, wpm, isPlaying |
 
 ---
 
@@ -108,11 +112,12 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Run Plan 02 (PDF crate spike) — validate `pdf-extract` WASM compilation with `cargo check --features pdf --target wasm32-unknown-unknown` and `lopdf = { features = ["wasm_js"] }`.
+**To resume work:** Run Plan 04 (EntryScreen component) — `useRsvpStore` and routing shell are in place; EntryScreen.tsx can now be built to call `setDocument` and navigate to `/preview`.
 
-**Next action:** Execute 01-02-PLAN.md (PDF crate spike).
+**Next action:** Execute 01-04-PLAN.md (EntryScreen with WASM document import).
 
 ---
 
 *State initialized: 2026-02-23 by roadmapper*
 *Updated: 2026-02-23 by execute-plan (01-01)*
+*Updated: 2026-02-23 by execute-plan (01-03)*
