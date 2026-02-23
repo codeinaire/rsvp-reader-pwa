@@ -24,7 +24,7 @@
 - [ ] **IMPT-01**: User can share a webpage URL from their browser into the app via Web Share Target, and the app extracts readable article text from the URL
 - [ ] **IMPT-02**: User can share a PDF file from another app into the RSVP Reader via Web Share Target
 - [ ] **IMPT-03**: User can open a file (PDF) directly from device storage using a file picker button within the app
-- [ ] **IMPT-04**: User can paste raw text directly into the app and begin reading it immediately via RSVP
+- [x] **IMPT-04**: User can paste raw text directly into the app and begin reading it immediately via RSVP
 
 ### Document Formats
 

@@ -1,7 +1,7 @@
 # Project State: RSVP Reader
 
 **Last updated:** 2026-02-23
-**Updated by:** execute-plan (01-03)
+**Updated by:** execute-plan (01-04)
 
 ---
 
@@ -18,7 +18,7 @@
 ## Current Position
 
 **Phase:** 1 — WASM Pipeline + Document Service
-**Plan:** 03 complete, starting 04
+**Plan:** 04 complete, starting 05
 **Status:** In progress
 
 ```
@@ -26,8 +26,8 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-23T05:25:06.544Z
-**Stopped at:** Completed 01-02-PLAN.md checkpoint approval
+**Last session:** 2026-02-23T05:48:52.849Z
+**Stopped at:** Completed 01-04-PLAN.md
 
 ---
 
@@ -47,6 +47,7 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
 
 ---
 | Phase 01 P02 | 10min | 1 tasks | 6 files |
+| Phase 01 P04 | 10min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -95,6 +96,7 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-23 | Phase 1 store shape — no Phase 2 fields yet | wordList/documentTitle/isWorkerReady only; Phase 2 adds currentWordIndex, wpm, isPlaying |
 | 2026-02-23 | pdf-extract chosen for PDF WASM (spike confirmed) | Compiled cleanly with lopdf wasm_js feature; 1018 KB bundle under 2 MB target; pdfium-render fallback not needed |
 | 2026-02-23 | wasm-opt needs --enable-nontrapping-float-to-int for pdf-extract | pdf-extract uses i32.trunc_sat_f64_s instructions; added flag to Cargo.toml [package.metadata.wasm-pack.profile.release] |
+| 2026-02-23 | ParseMessageType as const object (not enum) | TypeScript 5.9 erasableSyntaxOnly forbids runtime enum emit; const object with type alias provides identical ergonomics |
 
 ---
 
@@ -115,12 +117,13 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Run Plan 04 (EntryScreen component) — `useRsvpStore` and routing shell are in place; EntryScreen.tsx can now be built to call `setDocument` and navigate to `/preview`.
+**To resume work:** Run Plan 05 (EntryScreen component) — `documentService` singleton is ready; EntryScreen.tsx can call `parseFile()`, `parseText()`, `ensureReady()`, and dispatch `setDocument` to navigate to `/preview`.
 
-**Next action:** Execute 01-04-PLAN.md (EntryScreen with WASM document import).
+**Next action:** Execute 01-05-PLAN.md (EntryScreen with WASM document import).
 
 ---
 
 *State initialized: 2026-02-23 by roadmapper*
 *Updated: 2026-02-23 by execute-plan (01-01)*
 *Updated: 2026-02-23 by execute-plan (01-03)*
+*Updated: 2026-02-23 by execute-plan (01-04)*
