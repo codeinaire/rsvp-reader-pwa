@@ -35,7 +35,7 @@
 **Plans:** 6 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffold: Vite 7 + React + TypeScript app with WASM plugins and Rust workspace
+- [x] 01-01-PLAN.md — Project scaffold: Vite 7 + React + TypeScript app with WASM plugins and Rust workspace
 - [ ] 01-02-PLAN.md — PDF crate spike: attempt wasm-pack build, measure bundle, document crate decision (has checkpoint)
 - [ ] 01-03-PLAN.md — Zustand store + React Router routing shell (parallel with spike)
 - [ ] 01-04-PLAN.md — WASM Worker pipeline: worker-types, parser-worker, DocumentService, tokenize, format-detect
@@ -104,7 +104,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. WASM Pipeline + Document Service | 0/6 | In progress | - |
+| 1. WASM Pipeline + Document Service | 1/6 | In progress | - |
 | 2. RSVP Playback Engine | 0/? | Not started | - |
 | 3. Import UI + Reading View | 0/? | Not started | - |
 | 4. PWA + Web Share Target | 0/? | Not started | - |

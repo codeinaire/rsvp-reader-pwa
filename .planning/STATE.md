@@ -1,7 +1,7 @@
 # Project State: RSVP Reader
 
 **Last updated:** 2026-02-23
-**Updated by:** roadmapper
+**Updated by:** execute-plan (01-01)
 
 ---
 
@@ -18,13 +18,16 @@
 ## Current Position
 
 **Phase:** 1 — WASM Pipeline + Document Service
-**Plan:** None started
-**Status:** Not started
+**Plan:** 01 complete, starting 02
+**Status:** In progress
 
 ```
 Progress: [ ][ ][ ][ ] 0/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
+
+**Last session:** 2026-02-23T05:06:01Z
+**Stopped at:** Completed 01-01-PLAN.md (Vite + Rust scaffold)
 
 ---
 
@@ -34,8 +37,12 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
 |--------|--------|---------|
 | WASM bundle size | < 2 MB per module | Not measured |
 | RSVP timing accuracy | 100 words at 300 WPM = 20s ± 1s | Not measured |
-| First paint (WASM non-blocking) | No WASM init before ReactDOM.render | Not implemented |
+| First paint (WASM non-blocking) | No WASM init before ReactDOM.render | Implemented (scaffold) |
 | Lighthouse PWA score | Installable + offline | Not measured |
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| 01-01 | 6min | 2 | 23 |
 
 ---
 
@@ -63,6 +70,7 @@ Progress: [ ][ ][ ][ ] 0/4 phases complete
 4. Background tab throttling — listen to `visibilitychange`, auto-pause on hide, show "Paused" on return
 5. JSON serialization for WASM data exchange — use `serde-wasm-bindgen` and `ArrayBuffer` transfer
 6. WASM init blocking first paint — lazy-load, never block `ReactDOM.render`
+7. **getrandom 0.3.x changed API:** The `--cfg getrandom_backend="wasm_js"` rustflag (getrandom 0.2.x) no longer works. getrandom 0.3.x requires the `wasm_js` Cargo feature. Enable via `lopdf = { features = ["wasm_js"] }` when using pdf-extract.
 
 ### Reference Implementation
 
@@ -78,13 +86,15 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-23 | IMPT-01 (share webpage URL) placed in Phase 4 with PWA | Share Target for URLs requires the service worker POST handler; belongs with the PWA phase, not the import UI phase |
 | 2026-02-23 | PWA-03 (iOS fallback) placed in Phase 4 alongside Share Target | Must be built together per research constraint — sequential build would leave iOS users broken during Phase 4 |
 | 2026-02-23 | 4-phase structure at standard depth | 20 requirements in 4 natural delivery boundaries (pipeline → engine → UI → PWA); each phase is independently verifiable |
+| 2026-02-23 | pdf-extract not default-enabled in scaffold | getrandom 0.3.x requires Cargo wasm_js feature (not rustflag); spike (Plan 02) validates PDF WASM before enabling |
+| 2026-02-23 | Node.js 22.22.0 via nvm for development | Vite 7 requires Node 20.19+; dev machine had 20.16; used nvm to switch to 22.22.0 |
 
 ---
 
 ## Todos (carry forward)
 
-- [ ] Verify current versions of `vite-plugin-pwa`, `vite-plugin-wasm`, `wasm-pack` before Phase 1 starts
-- [ ] Run PDF crate spike (`pdf-extract` vs `pdfium-render` vs PDF.js) as first task of Phase 1
+- [x] Verify current versions of `vite-plugin-pwa`, `vite-plugin-wasm`, `wasm-pack` before Phase 1 starts
+- [ ] Run PDF crate spike (`pdf-extract` vs `pdfium-render` vs PDF.js) — Plan 02
 - [ ] Document PDF crate decision with rationale once spike is complete
 - [ ] Verify iOS Share Target status against current iOS release notes before Phase 4 planning
 
@@ -98,10 +108,11 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Read ROADMAP.md for phase structure and success criteria, then check current phase plans in `.planning/plans/` if they exist.
+**To resume work:** Run Plan 02 (PDF crate spike) — validate `pdf-extract` WASM compilation with `cargo check --features pdf --target wasm32-unknown-unknown` and `lopdf = { features = ["wasm_js"] }`.
 
-**Next action:** Run `/gsd:plan-phase 1` to create the execution plan for Phase 1 (WASM Pipeline + Document Service).
+**Next action:** Execute 01-02-PLAN.md (PDF crate spike).
 
 ---
 
 *State initialized: 2026-02-23 by roadmapper*
+*Updated: 2026-02-23 by execute-plan (01-01)*
