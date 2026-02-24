@@ -59,7 +59,15 @@ Plans:
 4. Reading progress is visible during playback (current word index and/or percentage), updating on every word change
 5. User can pause, resume, and jump backward or forward using both on-screen controls and keyboard shortcuts (space to pause/resume, arrow keys to jump) — timing remains accurate after each action with no accumulated drift
 
-**Plans:** TBD
+**Plans:** 6 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — TDD: computeOrp (ORP fragment split) and computeWordDelay (timing + sentence pause + length normalization)
+- [ ] 02-02-PLAN.md — Zustand store extension: add wpm (persisted), isPlaying, currentWordIndex, jumpSize
+- [ ] 02-03-PLAN.md — ORPDisplay (fixed focal column CSS grid) and ProgressBar (Word X / Y (Z%)) components
+- [ ] 02-04-PLAN.md — PlaybackControls component: jump buttons, jump-size stepper, play/pause, WPM slider, presets
+- [ ] 02-05-PLAN.md — RSVPReader assembly: scheduler + keyboard shortcuts + visibility auto-pause + App.tsx wiring
+- [ ] 02-06-PLAN.md — Phase 2 human verification against all five success criteria (has checkpoint)
 
 ---
 
@@ -105,7 +113,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. WASM Pipeline + Document Service | 6/6 | Complete    | 2026-02-23 |
-| 2. RSVP Playback Engine | 0/? | Not started | - |
+| 2. RSVP Playback Engine | 0/6 | In progress | - |
 | 3. Import UI + Reading View | 0/? | Not started | - |
 | 4. PWA + Web Share Target | 0/? | Not started | - |
 
