@@ -10,14 +10,14 @@
 - [x] **RSVP-01**: User sees one word at a time in a 3-span ORP display (left fragment | red focal character | right fragment) with the focal character held at the same fixed screen position for every word
 - [x] **RSVP-02**: Playback pauses briefly at sentence-ending punctuation (periods, question marks, exclamation marks) for natural reading rhythm
 - [x] **RSVP-03**: Words longer than average are displayed proportionally slower than the WPM setting (word-length normalization)
-- [ ] **RSVP-04**: User can see reading progress (word X of Y and/or % complete) during RSVP playback
+- [x] **RSVP-04**: User can see reading progress (word X of Y and/or % complete) during RSVP playback
 
 ### Controls
 
-- [ ] **CTRL-01**: User can adjust reading speed via a WPM slider
-- [ ] **CTRL-02**: User can pause and resume RSVP playback
-- [ ] **CTRL-03**: User can jump backward or forward through content (sentence or paragraph level)
-- [ ] **CTRL-04**: User can control playback via keyboard shortcuts (space to pause/resume, arrow keys to jump)
+- [x] **CTRL-01**: User can adjust reading speed via a WPM slider
+- [x] **CTRL-02**: User can pause and resume RSVP playback
+- [x] **CTRL-03**: User can jump backward or forward through content (sentence or paragraph level)
+- [x] **CTRL-04**: User can control playback via keyboard shortcuts (space to pause/resume, arrow keys to jump)
 
 ### Import
 
@@ -83,11 +83,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | RSVP-01 | Phase 2 | Complete |
 | RSVP-02 | Phase 2 | Complete |
 | RSVP-03 | Phase 2 | Complete |
-| RSVP-04 | Phase 2 | Pending |
-| CTRL-01 | Phase 2 | Pending |
-| CTRL-02 | Phase 2 | Pending |
-| CTRL-03 | Phase 2 | Pending |
-| CTRL-04 | Phase 2 | Pending |
+| RSVP-04 | Phase 2 | Complete |
+| CTRL-01 | Phase 2 | Complete |
+| CTRL-02 | Phase 2 | Complete |
+| CTRL-03 | Phase 2 | Complete |
+| CTRL-04 | Phase 2 | Complete |
 | IMPT-01 | Phase 4 | Pending |
 | IMPT-02 | Phase 3 | Pending |
 | IMPT-03 | Phase 3 | Pending |

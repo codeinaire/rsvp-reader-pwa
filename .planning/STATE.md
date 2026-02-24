@@ -1,7 +1,7 @@
 # Project State: RSVP Reader
 
-**Last updated:** 2026-02-23
-**Updated by:** execute-plan (01-06)
+**Last updated:** 2026-02-24
+**Updated by:** execute-plan (02-02)
 
 ---
 
@@ -18,7 +18,7 @@
 ## Current Position
 
 **Phase:** 2 — RSVP Playback Engine
-**Plan:** 02 (next to execute)
+**Plan:** 03 (next to execute)
 **Status:** In progress
 
 ```
@@ -26,8 +26,8 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-24T23:47:57.735Z
-**Stopped at:** Completed 02-01-PLAN.md
+**Last session:** 2026-02-24T23:52:00Z
+**Stopped at:** Completed 02-02-PLAN.md
 
 ---
 
@@ -51,6 +51,7 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
 | Phase 01 P05 | 3min | 2 tasks | 4 files |
 | Phase 01 P06 | 39min | 2 tasks | 5 files |
 | Phase 02 P01 | 2 | 2 tasks | 6 files |
+| Phase 02 P02 | 3 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -109,6 +110,8 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-23 | vite-plugin-top-level-await removed | Incompatible with Vite 7 worker bundling (path.join crash); not needed since bundler-target WASM has no init() export |
 | 2026-02-23 | Bundler-target WASM pkg has no init() | wasm-pack --target bundler loads WASM via static import handled by vite-plugin-wasm — no async init call needed |
 | 2026-02-23 | Phase 1 approved by human — all four success criteria verified | Paste text flow, text-layer PDF, scanned-PDF error, WASM non-blocking all confirmed in production build at localhost:4173 |
+| 2026-02-24 | wpm partialize-only pattern in Zustand persist middleware | persist middleware wraps full store, partialize returns only { wpm: state.wpm } — transient state (isPlaying, currentWordIndex, jumpSize) intentionally excluded |
+| 2026-02-24 | reset() does NOT reset wpm — wpm survives via persist middleware | reset covers ephemeral document + playback state only; wpm persisted separately in localStorage |
 
 ---
 
@@ -129,9 +132,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 1 is complete. Begin Phase 2 — RSVP Playback Engine. Run `/gsd:plan` to generate Phase 2 plans.
+**To resume work:** Phase 2 Plan 02 complete. Store extended with playback fields and persist middleware. Continue with Phase 2 Plan 03 — RSVP display component.
 
-**Next action:** Phase 2 planning — RSVP playback engine (ORP display, timing scheduler, playback controls, progress tracking).
+**Next action:** Execute 02-03-PLAN.md — RSVP display component (ORP word display, timing scheduler, visual layout).
 
 ---
 
@@ -141,3 +144,4 @@ None at this time.
 *Updated: 2026-02-23 by execute-plan (01-04)*
 *Updated: 2026-02-23 by execute-plan (01-05)*
 *Updated: 2026-02-23 by execute-plan (01-06) — Phase 1 complete*
+*Updated: 2026-02-24 by execute-plan (02-02) — Phase 2 Plan 02 complete*
