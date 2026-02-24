@@ -7,9 +7,9 @@
 
 ### RSVP Display
 
-- [ ] **RSVP-01**: User sees one word at a time in a 3-span ORP display (left fragment | red focal character | right fragment) with the focal character held at the same fixed screen position for every word
-- [ ] **RSVP-02**: Playback pauses briefly at sentence-ending punctuation (periods, question marks, exclamation marks) for natural reading rhythm
-- [ ] **RSVP-03**: Words longer than average are displayed proportionally slower than the WPM setting (word-length normalization)
+- [x] **RSVP-01**: User sees one word at a time in a 3-span ORP display (left fragment | red focal character | right fragment) with the focal character held at the same fixed screen position for every word
+- [x] **RSVP-02**: Playback pauses briefly at sentence-ending punctuation (periods, question marks, exclamation marks) for natural reading rhythm
+- [x] **RSVP-03**: Words longer than average are displayed proportionally slower than the WPM setting (word-length normalization)
 - [ ] **RSVP-04**: User can see reading progress (word X of Y and/or % complete) during RSVP playback
 
 ### Controls
@@ -80,9 +80,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| RSVP-01 | Phase 2 | Pending |
-| RSVP-02 | Phase 2 | Pending |
-| RSVP-03 | Phase 2 | Pending |
+| RSVP-01 | Phase 2 | Complete |
+| RSVP-02 | Phase 2 | Complete |
+| RSVP-03 | Phase 2 | Complete |
 | RSVP-04 | Phase 2 | Pending |
 | CTRL-01 | Phase 2 | Pending |
 | CTRL-02 | Phase 2 | Pending |

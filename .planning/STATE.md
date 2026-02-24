@@ -18,16 +18,16 @@
 ## Current Position
 
 **Phase:** 2 — RSVP Playback Engine
-**Plan:** 01 (next to execute)
-**Status:** Milestone complete
+**Plan:** 02 (next to execute)
+**Status:** In progress
 
 ```
 Progress: [x][ ][ ][ ] 1/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-24T23:20:52.287Z
-**Stopped at:** Phase 2 plans verified
+**Last session:** 2026-02-24T23:47:57.735Z
+**Stopped at:** Completed 02-01-PLAN.md
 
 ---
 
@@ -50,6 +50,7 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
 | Phase 01 P04 | 10min | 2 tasks | 5 files |
 | Phase 01 P05 | 3min | 2 tasks | 4 files |
 | Phase 01 P06 | 39min | 2 tasks | 5 files |
+| Phase 02 P01 | 2 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -102,6 +103,8 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-23 | Paste text as collapsible details/summary | Secondary import path not prominent per CONTEXT.md user decision; friction-heavy on mobile so not the hero action |
 | 2026-02-23 | Start Reading button above preview text in TextPreview | User decision from CONTEXT.md — CTA prominent before user must scroll past content |
 | 2026-02-23 | cancelRef boolean for cancel signal | documentService Worker has no abort mechanism; boolean ref is the minimal cancel pattern |
+| 2026-02-24 | ORP formula: max(0, ceil(n*0.3)-1) confirmed correct; Intl.Segmenter singleton at module level | Formula tested against all word lengths 1-11+; plan behavior examples had minor inconsistencies for 3-char and 9-char words but formula is canonical |
+| 2026-02-24 | computeWordDelay: /\W/g strip for letter count, sentence regex on raw word | Length multiplier based on letter count not grapheme count; sentence detection tests the full word string |
 | 2026-02-23 | worker.format = 'es' required in vite.config.ts | WASM static imports cause top-level await; iife worker format rejects this — must use 'es' |
 | 2026-02-23 | vite-plugin-top-level-await removed | Incompatible with Vite 7 worker bundling (path.join crash); not needed since bundler-target WASM has no init() export |
 | 2026-02-23 | Bundler-target WASM pkg has no init() | wasm-pack --target bundler loads WASM via static import handled by vite-plugin-wasm — no async init call needed |
