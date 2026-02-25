@@ -86,7 +86,14 @@ Plans:
 4. User can adjust font size for both the RSVP word display and the full text panel independently
 5. On mobile, the layout is usable: the RSVP display and controls are reachable without horizontal scrolling and the text panel is scrollable
 
-**Plans:** TBD
+**Plans:** 5 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Zustand store font size extension + TextPreview enhancement (metadata, fade preview, error state)
+- [ ] 03-02-PLAN.md — Web Share Target: manifest.json + scoped service worker + App.tsx message listener
+- [ ] 03-03-PLAN.md — TextPanel (word highlight, auto-scroll, dimming) + FontSizePanel + PlaybackControls gear icon
+- [ ] 03-04-PLAN.md — RSVPReader dual-view layout rewrite + ORPDisplay dynamic font size
+- [ ] 03-05-PLAN.md — Phase 3 human verification against all six requirements (has checkpoint)
 
 ---
 
@@ -114,7 +121,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. WASM Pipeline + Document Service | 6/6 | Complete    | 2026-02-23 |
 | 2. RSVP Playback Engine | 5/6 | In Progress|  |
-| 3. Import UI + Reading View | 0/? | Not started | - |
+| 3. Import UI + Reading View | 0/5 | Planned | - |
 | 4. PWA + Web Share Target | 0/? | Not started | - |
 
 ---
