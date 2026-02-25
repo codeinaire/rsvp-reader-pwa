@@ -111,7 +111,13 @@ Plans:
 3. After installation, the app loads and the RSVP reader is fully functional without a network connection (offline app shell)
 4. On iOS, where Web Share Target is unavailable, the user can import content using the file picker or paste input — these paths work identically to the Android/desktop experience and are not degraded
 
-**Plans:** TBD
+**Plans:** 4 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — PWA foundation: vite-plugin-pwa + Workbox app-shell SW + PNG icon generation + manifest update
+- [ ] 04-02-PLAN.md — URL extraction lib (@mozilla/readability) + document persistence (idb-keyval) + UrlLoader component
+- [ ] 04-03-PLAN.md — App wiring: /load-url route, URL share detection, DocumentHydrator, EntryScreen URL input, persistDocument calls
+- [ ] 04-04-PLAN.md — Phase 4 human verification against all four requirements (has checkpoint)
 
 ---
 
@@ -122,7 +128,7 @@ Plans:
 | 1. WASM Pipeline + Document Service | 6/6 | Complete    | 2026-02-23 |
 | 2. RSVP Playback Engine | 5/6 | In Progress|  |
 | 3. Import UI + Reading View | 5/5 | Complete    | 2026-02-25 |
-| 4. PWA + Web Share Target | 0/? | Not started | - |
+| 4. PWA + Web Share Target | 0/4 | Not started | - |
 
 ---
 
@@ -156,4 +162,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-02-23*
-*Last updated: 2026-02-25 — Phase 3 complete: all six requirements human-verified in production build (5/5 plans done)*
+*Last updated: 2026-02-25 — Phase 4 planned: 4 plans in 3 waves (Plans 01+02 parallel Wave 1, Plan 03 Wave 2, Plan 04 checkpoint Wave 3)*
