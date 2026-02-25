@@ -18,7 +18,7 @@
 ## Current Position
 
 **Phase:** 4 — PWA + Web Share Target
-**Plan:** 02 (next to execute)
+**Plan:** 03 (next to execute)
 **Status:** In Progress
 
 ```
@@ -26,8 +26,8 @@ Progress: [x][ ][x][ ] 2/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-25T23:11:43.411Z
-**Stopped at:** Completed 04-01-PLAN.md
+**Last session:** 2026-02-25T23:14:39Z
+**Stopped at:** Completed 04-02-PLAN.md
 
 ---
 
@@ -61,6 +61,8 @@ Progress: [x][ ][x][ ] 2/4 phases complete
 | Phase 03 P04 | 2 | 2 tasks | 2 files |
 | Phase 03 P05 | 20 | 2 tasks | 3 files |
 | Phase 04 P01 | 2 | 2 tasks | 10 files |
+| Phase 04 P02 | 2 | 2 tasks | 5 files |
+| Phase 04 P02 | 2 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -144,6 +146,9 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-25 | injectManifest strategy with manifest:false keeps project-managed manifest.json | VitePWA compiles src/sw.ts into dist/sw.js; manifest:false prevents auto-generation overwriting the project-curated manifest |
 | 2026-02-25 | globPatterns includes .wasm in VitePWA injectManifest config | Ensures the 1042 KB WASM bundle is included in Workbox precache for full offline operation |
 | 2026-02-25 | share_target extended with title/text/url alongside files — single POST action | Handles both PDF file shares and URL/text shares; service worker distinguishes by checking formData.get('pdf') nullability |
+| 2026-02-25 | DOMParser used in url-extractor — no jsdom dependency | Browser provides native DOMParser; Readability operates on native Document; jsdom would add heavy Node.js-only dependency |
+| 2026-02-25 | idb-keyval over localStorage for document persistence | localStorage 5–10 MB cap exceeded by long PDF word arrays; idb-keyval adds ~295 bytes brotli'd |
+| 2026-02-25 | cancelled boolean in UrlLoader useEffect — minimal async cancel signal | Prevents setState after unmount; simpler than AbortController for fire-and-forget extraction flow |
 
 ---
 
@@ -164,9 +169,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 4 Plan 01 complete. Workbox app-shell SW (src/sw.ts -> dist/sw.js) installed with 9 precache entries including WASM. PNG icons generated (192x192, 512x512, maskable) from brand SVG. manifest.json updated with PNG icon paths and extended share_target (title/text/url/files). Requirements PWA-01 and PWA-02 marked complete. Build exits 0.
+**To resume work:** Phase 4 Plan 02 complete. url-extractor.ts (extractArticle via @mozilla/readability), document-persistence.ts (persistDocument/hydrateLastDocument via idb-keyval), and UrlLoader.tsx (hostname display + error state) all compiled cleanly. @mozilla/readability and idb-keyval installed. Build exits 0.
 
-**Next action:** Execute Phase 4 Plan 02 (iOS fallback UI).
+**Next action:** Execute Phase 4 Plan 03 (wire UrlLoader route in App.tsx and add URL input to EntryScreen).
 
 ---
 
@@ -185,3 +190,4 @@ None at this time.
 *Updated: 2026-02-25 by execute-plan (03-03) — Phase 3 Plan 03 complete (TextPanel, FontSizePanel, PlaybackControls gear toggle)*
 *Updated: 2026-02-25 by execute-plan (03-05) — Phase 3 complete: human verification approved, 5 fixes applied (PDF title, scroll-center, Firefox layout + inset-0, back button, ResizeObserver font clamp)*
 *Updated: 2026-02-25 by execute-plan (04-01) — Phase 4 Plan 01 complete (Workbox SW, PNG icons, manifest updates, PWA-01/PWA-02 complete)*
+*Updated: 2026-02-25 by execute-plan (04-02) — Phase 4 Plan 02 complete (url-extractor.ts, document-persistence.ts, UrlLoader.tsx — IMPT-01/PWA-02/PWA-03 marked complete)*
