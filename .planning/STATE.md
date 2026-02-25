@@ -26,8 +26,8 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-25T03:54:16.770Z
-**Stopped at:** Completed 03-03-PLAN.md
+**Last session:** 2026-02-25T03:57:56.146Z
+**Stopped at:** Completed 03-04-PLAN.md
 
 ---
 
@@ -58,6 +58,7 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
 | Phase 03 P02 | 4 | 2 tasks | 4 files |
 | Phase 03 P01 | 2 | 2 tasks | 2 files |
 | Phase 03 P03 | 2 | 2 tasks | 3 files |
+| Phase 03 P04 | 2 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -129,6 +130,9 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-25 | Callback ref pattern for word spans in TextPanel | Single mutable array populated on render; avoids thousands of individual useRef objects |
 | 2026-02-25 | scrollIntoView block:nearest in TextPanel | Only scrolls when word would go off-screen; prevents jarring continuous centering |
 | 2026-02-25 | FontSizePanel absolute bottom-full overlay in PlaybackControls | Floats above controls without affecting layout flow; gear icon toggles via local useState |
+| 2026-02-25 | Removed nested dark panel from ORPDisplay (bg-gray-900 roundedl-2xl py-10 px-12) | RSVP zone container bg-gray-950 provides background context — double-card visual eliminated |
+| 2026-02-25 | sticky top-0 on RSVP zone inside overflow-hidden flex container | Correct pattern: scroll context is TextPanel's own overflow-y-auto, not window — position:fixed not needed |
+| 2026-02-25 | fontSize: rsvpFontSize (number) in ORPDisplay inline style | React/CSS treats numeric inline style value as pixels automatically; no 'px' suffix required |
 
 ---
 
@@ -149,9 +153,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 3 Plan 03 complete. TextPanel, FontSizePanel, and updated PlaybackControls created. VIEW-01, VIEW-02, VIEW-04 requirements complete. Continue with Phase 3 Plan 04.
+**To resume work:** Phase 3 Plan 04 complete. Dual-view RSVPReader layout assembled: sticky RSVP zone (h-[40dvh]) + TextPanel. ORPDisplay reads rsvpFontSize from store. All Phase 3 components wired into /read screen. Continue with Phase 3 Plan 05.
 
-**Next action:** Execute 03-04-PLAN.md — dual-view RSVPReader layout rewrite using TextPanel.
+**Next action:** Execute 03-05-PLAN.md (if exists) or proceed to Phase 4.
 
 ---
 
