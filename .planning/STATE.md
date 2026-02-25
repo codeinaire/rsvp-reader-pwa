@@ -18,7 +18,7 @@
 ## Current Position
 
 **Phase:** 2 — RSVP Playback Engine
-**Plan:** 05 (next to execute)
+**Plan:** 06 (next to execute)
 **Status:** In progress
 
 ```
@@ -26,8 +26,8 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-24T23:54:08.324Z
-**Stopped at:** Completed 02-04-PLAN.md
+**Last session:** 2026-02-24T23:58:49Z
+**Stopped at:** Completed 02-05-PLAN.md
 
 ---
 
@@ -54,6 +54,7 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
 | Phase 02 P02 | 3 | 2 tasks | 1 files |
 | Phase 02 P04 | 1 | 1 tasks | 1 files |
 | Phase 02 P03 | 1 | 2 tasks | 2 files |
+| Phase 02 P05 | 2 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -114,6 +115,8 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-23 | Phase 1 approved by human — all four success criteria verified | Paste text flow, text-layer PDF, scanned-PDF error, WASM non-blocking all confirmed in production build at localhost:4173 |
 | 2026-02-24 | wpm partialize-only pattern in Zustand persist middleware | persist middleware wraps full store, partialize returns only { wpm: state.wpm } — transient state (isPlaying, currentWordIndex, jumpSize) intentionally excluded |
 | 2026-02-24 | reset() does NOT reset wpm — wpm survives via persist middleware | reset covers ephemeral document + playback state only; wpm persisted separately in localStorage |
+| 2026-02-24 | Scheduler useEffect deps=[isPlaying] only — wpm/wordList read from refs | Prevents stale closure without inflating deps array; WPM changes take effect on next word automatically |
+| 2026-02-24 | scheduleNext defined inside useEffect (not useCallback) | Only called from within the scheduling effect, never passed as prop; useCallback overhead not justified |
 
 ---
 
@@ -134,9 +137,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 2 Plan 04 complete. PlaybackControls component built. Plans 02 (store), 03 (ORP display), and 04 (controls) all complete. Continue with Phase 2 Plan 05 — RSVPReader screen assembly.
+**To resume work:** Phase 2 Plan 05 complete. RSVPReader assembled with scheduler, keyboard, and visibility hooks. /read route wired to RSVPReader. All 8 Phase 2 requirements complete (RSVP-01 through RSVP-04, CTRL-01 through CTRL-04). Continue with Phase 2 Plan 06 — human verification checkpoint.
 
-**Next action:** Execute 02-05-PLAN.md — assemble RSVPReader screen (import ORPDisplay, ProgressBar, PlaybackControls into final reader view).
+**Next action:** Execute 02-06-PLAN.md — human checkpoint to verify the RSVP engine end-to-end at localhost.
 
 ---
 
@@ -149,3 +152,4 @@ None at this time.
 *Updated: 2026-02-24 by execute-plan (02-02) — Phase 2 Plan 02 complete*
 *Updated: 2026-02-24 by execute-plan (02-03) — Phase 2 Plan 03 complete (ORPDisplay + ProgressBar)*
 *Updated: 2026-02-24 by execute-plan (02-04) — Phase 2 Plan 04 complete*
+*Updated: 2026-02-24 by execute-plan (02-05) — Phase 2 Plan 05 complete (RSVPReader assembled, /read route wired)*
