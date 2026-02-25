@@ -106,14 +106,26 @@ function ShareTargetHandler() {
 function DocumentHydrator() {
   const setDocument = useRsvpStore((s) => s.setDocument)
   const wordList = useRsvpStore((s) => s.wordList)
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Only hydrate if no document is already loaded (don't overwrite a freshly imported doc)
     if (wordList.length > 0) return
 
+    // Capture synchronously at mount — before ShareTargetHandler may call replaceState
+    // and clear the params. If share params are present, ShareTargetHandler owns navigation.
+    const params = new URLSearchParams(window.location.search)
+    if (params.has('url') || params.has('text') || params.has('pdf')) return
+    const initialPath = window.location.pathname
+
     hydrateLastDocument().then((saved) => {
       if (saved) {
         setDocument(saved.words, saved.title)
+        // Navigate to the reader so the user sees their document — only from the
+        // entry screen (don't override a bookmarked /read or /preview route).
+        if (initialPath === '/') {
+          navigate('/read', { replace: true })
+        }
       }
     })
   }, []) // eslint-disable-line react-hooks/exhaustive-deps

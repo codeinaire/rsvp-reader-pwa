@@ -2,6 +2,14 @@ import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching'
 
 declare let self: ServiceWorkerGlobalScope
 
+// Activate immediately on install so offline works after the first visit without
+// requiring the user to close and reopen all tabs. Without this, the SW enters
+// "waiting" state on first install and the app shell is never served from cache
+// until the user manually closes every tab.
+// @ts-expect-error — TypeScript's narrowed 'self' alias doesn't expose the full
+// ServiceWorkerGlobalScope interface in this compilation unit; both methods exist at runtime.
+self.addEventListener('install', () => void self.skipWaiting())
+
 // Remove caches from outdated versions
 cleanupOutdatedCaches()
 
