@@ -154,9 +154,17 @@ export default function RSVPReader() {
 
   return (
     <div className="flex flex-col h-dvh bg-gray-950 overflow-hidden">
-      {/* RSVP zone — sticky top ~40% of viewport */}
-      <div className="h-[40dvh] flex-shrink-0 sticky top-0 z-10 bg-gray-950
+      {/* RSVP zone — flex-shrink-0 keeps it fixed at top in all browsers (including Firefox mobile) */}
+      <div className="h-[40dvh] flex-shrink-0 bg-gray-950 relative
                       flex flex-col items-center justify-center gap-4 px-4">
+        {/* Back button — top-left corner, unobtrusive */}
+        <button
+          onClick={() => navigate('/')}
+          aria-label="Back to home"
+          className="absolute top-3 left-3 text-sm text-gray-500 hover:text-gray-300 transition-colors"
+        >
+          ← Back
+        </button>
         <ProgressBar />
         <ORPDisplay word={wordList[currentWordIndex] ?? ''} />
         <div className="w-full max-w-xl">

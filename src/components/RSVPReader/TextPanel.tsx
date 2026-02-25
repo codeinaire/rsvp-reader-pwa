@@ -85,7 +85,7 @@ export function TextPanel() {
 
     // Auto-scroll: skip if user recently scrolled manually
     if (!userScrolledRef.current && currEl) {
-      currEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+      currEl.scrollIntoView({ block: 'center', behavior: 'smooth' })
     }
   }, [currentWordIndex])
 

@@ -67,7 +67,9 @@ export default function EntryScreen() {
         )
       }
 
-      setDocument(result.words, result.title)
+      // Use embedded PDF title if available; fall back to filename (strip extension)
+      const title = result.title ?? file.name.replace(/\.[^.]+$/, '')
+      setDocument(result.words, title)
       navigate('/preview')
     } catch (e) {
       if (cancelRef.current) return
