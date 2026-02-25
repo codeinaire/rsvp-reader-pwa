@@ -106,3 +106,12 @@ None - no external service configuration required.
 ---
 *Phase: 03-import-ui-reading-view*
 *Completed: 2026-02-25*
+
+## Self-Check: PASSED
+
+- FOUND: src/components/RSVPReader/TextPanel.tsx
+- FOUND: src/components/RSVPReader/FontSizePanel.tsx
+- FOUND: src/components/RSVPReader/PlaybackControls.tsx
+- FOUND: .planning/phases/03-import-ui-reading-view/03-03-SUMMARY.md
+- FOUND: commit eac6c5f (Task 1)
+- FOUND: commit f3f1bac (Task 2)
