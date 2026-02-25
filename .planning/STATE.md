@@ -122,6 +122,8 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-25 | ShareTargetHandler as local component in App.tsx (not separate file) | Keeps share target wiring co-located with routing; useNavigate access requires being inside BrowserRouter |
 | 2026-02-25 | scope='/share-target/' on SW registration limits SW to that path | Prevents share target SW from intercepting app shell requests — minimal interference pattern |
 | 2026-02-25 | Web Share Target architecture complete in Plan 02; activation requires Phase 4 PWA | Share target becomes user-visible only after PWA installation; architecture is correct and ready |
+| 2026-02-25 | Pages row omitted from TextPreview metadata card | pageCount not in ParseResult yet; omit row rather than show static placeholder |
+| 2026-02-25 | Persistent error on wordCount < 10 in TextPreview | Defense-in-depth alongside EntryScreen guard; error requires explicit user action to dismiss |
 
 ---
 
@@ -159,3 +161,4 @@ None at this time.
 *Updated: 2026-02-24 by execute-plan (02-04) — Phase 2 Plan 04 complete*
 *Updated: 2026-02-24 by execute-plan (02-05) — Phase 2 Plan 05 complete (RSVPReader assembled, /read route wired)*
 *Updated: 2026-02-25 by execute-plan (03-02) — Phase 3 Plan 02 complete (Web Share Target: manifest.json, share-target-sw.js, App.tsx ShareTargetHandler)*
+*Updated: 2026-02-25 by execute-plan (03-01) — Phase 3 Plan 01 complete (rsvp-store font size extension, TextPreview enhanced)*
