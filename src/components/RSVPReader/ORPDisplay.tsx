@@ -1,3 +1,4 @@
+import { useRsvpStore } from '../../store/rsvp-store'
 import { computeOrp } from '../../lib/orp'
 
 interface ORPDisplayProps {
@@ -6,15 +7,17 @@ interface ORPDisplayProps {
 
 export function ORPDisplay({ word }: ORPDisplayProps) {
   const { left, focal, right } = computeOrp(word)
+  const rsvpFontSize = useRsvpStore((s) => s.rsvpFontSize)
+
   return (
     <div
-      className="bg-gray-900 rounded-2xl py-10 px-12 font-mono flex items-center justify-center"
+      className="font-mono flex items-center justify-center"
     >
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: '14ch 1ch 20ch',
-          fontSize: '4.5rem',
+          fontSize: rsvpFontSize,
           lineHeight: 1,
         }}
         className="font-mono items-center"
