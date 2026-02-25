@@ -24,8 +24,11 @@ export interface RsvpStore {
   wpm: number // default: 250
 
   // Settings (Phase 3 — persisted to localStorage)
-  rsvpFontSize: number  // RSVP word font size in px; default 72 (matches existing 4.5rem in ORPDisplay)
+  rsvpFontSize: number  // RSVP word font size in px; default 32
   textFontSize: number  // Full text panel font size in px; default 16 (text-base equivalent)
+
+  // Derived display state (Phase 3 — NOT persisted; set by ORPDisplay's ResizeObserver)
+  maxRsvpFontSize: number  // max font that fits in the current container; default 120
 
   // Actions — Phase 1
   setDocument: (words: string[], title: string | null) => void
@@ -40,6 +43,7 @@ export interface RsvpStore {
   // Actions — Phase 3 font size
   setRsvpFontSize: (size: number) => void
   setTextFontSize: (size: number) => void
+  setMaxRsvpFontSize: (max: number) => void
 
   // Reset — resets document AND playback state (not wpm — that's persisted separately)
   reset: () => void
@@ -71,8 +75,11 @@ export const useRsvpStore = create<RsvpStore>()(
       wpm: 250,
 
       // Settings (Phase 3 — persisted)
-      rsvpFontSize: 72,
+      rsvpFontSize: 32,
       textFontSize: 16,
+
+      // Derived display state (Phase 3 — ephemeral)
+      maxRsvpFontSize: 120,
 
       // Actions — Phase 1
       setDocument: (words, title) =>
@@ -95,8 +102,9 @@ export const useRsvpStore = create<RsvpStore>()(
         set({ wpm }),
 
       // Actions — Phase 3 font size (clamped on write)
-      setRsvpFontSize: (size) => set({ rsvpFontSize: Math.max(48, Math.min(120, size)) }),
+      setRsvpFontSize: (size) => set({ rsvpFontSize: Math.max(16, Math.min(120, size)) }),
       setTextFontSize: (size) => set({ textFontSize: Math.max(12, Math.min(32, size)) }),
+      setMaxRsvpFontSize: (max) => set({ maxRsvpFontSize: max }),
 
       // Reset — resets ALL fields except wpm (wpm persists via middleware)
       reset: () => set(ephemeralDefaults),
