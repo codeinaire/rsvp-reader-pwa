@@ -18,7 +18,7 @@
 ## Current Position
 
 **Phase:** 4 — PWA + Web Share Target
-**Plan:** 03 (next to execute)
+**Plan:** 04 (next to execute)
 **Status:** In Progress
 
 ```
@@ -26,8 +26,8 @@ Progress: [x][ ][x][ ] 2/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-25T23:14:39Z
-**Stopped at:** Completed 04-02-PLAN.md
+**Last session:** 2026-02-25T23:20:15.274Z
+**Stopped at:** Completed 04-03-PLAN.md
 
 ---
 
@@ -63,6 +63,7 @@ Progress: [x][ ][x][ ] 2/4 phases complete
 | Phase 04 P01 | 2 | 2 tasks | 10 files |
 | Phase 04 P02 | 2 | 2 tasks | 5 files |
 | Phase 04 P02 | 2 | 2 tasks | 5 files |
+| Phase 04 P03 | 2 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -149,6 +150,9 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-25 | DOMParser used in url-extractor — no jsdom dependency | Browser provides native DOMParser; Readability operates on native Document; jsdom would add heavy Node.js-only dependency |
 | 2026-02-25 | idb-keyval over localStorage for document persistence | localStorage 5–10 MB cap exceeded by long PDF word arrays; idb-keyval adds ~295 bytes brotli'd |
 | 2026-02-25 | cancelled boolean in UrlLoader useEffect — minimal async cancel signal | Prevents setState after unmount; simpler than AbortController for fire-and-forget extraction flow |
+| 2026-02-25 | DocumentHydrator guards wordList.length > 0 before hydrating from IndexedDB | Prevents overwriting a freshly imported doc on same mount cycle as ShareTargetHandler |
+| 2026-02-25 | persistDocument fire-and-forget in EntryScreen (not awaited) | User navigates to /preview or /load-url immediately; IndexedDB write happens in background |
+| 2026-02-25 | GET share detection cleans URL bar via window.history.replaceState({}, '', '/') | After navigating to /load-url, app shell URL is restored to / — clean navigation stack |
 
 ---
 
@@ -169,9 +173,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 4 Plan 02 complete. url-extractor.ts (extractArticle via @mozilla/readability), document-persistence.ts (persistDocument/hydrateLastDocument via idb-keyval), and UrlLoader.tsx (hostname display + error state) all compiled cleanly. @mozilla/readability and idb-keyval installed. Build exits 0.
+**To resume work:** Phase 4 Plan 03 complete. /load-url route wired in App.tsx, GET URL share detection added to ShareTargetHandler (?url=/?text= params), DocumentHydrator restores last document from IndexedDB on startup. EntryScreen has URL input accordion (iOS fallback path) and calls persistDocument after every PDF and paste import. Build exits 0.
 
-**Next action:** Execute Phase 4 Plan 03 (wire UrlLoader route in App.tsx and add URL input to EntryScreen).
+**Next action:** Execute Phase 4 Plan 04 (human verification checkpoint — test PWA install, URL share, offline reading).
 
 ---
 
@@ -191,3 +195,4 @@ None at this time.
 *Updated: 2026-02-25 by execute-plan (03-05) — Phase 3 complete: human verification approved, 5 fixes applied (PDF title, scroll-center, Firefox layout + inset-0, back button, ResizeObserver font clamp)*
 *Updated: 2026-02-25 by execute-plan (04-01) — Phase 4 Plan 01 complete (Workbox SW, PNG icons, manifest updates, PWA-01/PWA-02 complete)*
 *Updated: 2026-02-25 by execute-plan (04-02) — Phase 4 Plan 02 complete (url-extractor.ts, document-persistence.ts, UrlLoader.tsx — IMPT-01/PWA-02/PWA-03 marked complete)*
+*Updated: 2026-02-25 by execute-plan (04-03) — Phase 4 Plan 03 complete (/load-url route, DocumentHydrator, GET URL share detection, EntryScreen URL input, persistDocument on all imports)*
