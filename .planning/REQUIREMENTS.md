@@ -39,8 +39,8 @@
 
 ### PWA
 
-- [ ] **PWA-01**: App is installable to the home screen or desktop (Web App Manifest, Add to Home Screen prompt)
-- [ ] **PWA-02**: App works fully offline after installation (service worker caches app shell and assets)
+- [x] **PWA-01**: App is installable to the home screen or desktop (Web App Manifest, Add to Home Screen prompt)
+- [x] **PWA-02**: App works fully offline after installation (service worker caches app shell and assets)
 - [ ] **PWA-03**: On iOS where Web Share Target is unavailable, user can import files via a native file picker as a fully functional fallback
 
 ## v2 Requirements
@@ -97,8 +97,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | VIEW-02 | Phase 3 | Complete |
 | VIEW-03 | Phase 3 | Complete |
 | VIEW-04 | Phase 3 | Complete |
-| PWA-01 | Phase 4 | Pending |
-| PWA-02 | Phase 4 | Pending |
+| PWA-01 | Phase 4 | Complete |
+| PWA-02 | Phase 4 | Complete |
 | PWA-03 | Phase 4 | Pending |
 
 **Coverage:**

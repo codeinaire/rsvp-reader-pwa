@@ -18,16 +18,16 @@
 ## Current Position
 
 **Phase:** 4 — PWA + Web Share Target
-**Plan:** 01 (next to execute)
-**Status:** Milestone complete
+**Plan:** 02 (next to execute)
+**Status:** In Progress
 
 ```
 Progress: [x][ ][x][ ] 2/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-25T22:38:47.487Z
-**Stopped at:** Phase 4 context gathered
+**Last session:** 2026-02-25T23:11:43.411Z
+**Stopped at:** Completed 04-01-PLAN.md
 
 ---
 
@@ -60,6 +60,7 @@ Progress: [x][ ][x][ ] 2/4 phases complete
 | Phase 03 P03 | 2 | 2 tasks | 3 files |
 | Phase 03 P04 | 2 | 2 tasks | 2 files |
 | Phase 03 P05 | 20 | 2 tasks | 3 files |
+| Phase 04 P01 | 2 | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -140,6 +141,9 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-25 | Back button added to /read reader view (absolute top-left of RSVP zone) | UAT fix: users had no way to return home from reader; absolute-positioned ← Back button uses useNavigate() without disrupting layout |
 | 2026-02-25 | fixed inset-0 layout on RSVPReader root container | UAT fix: body scroll leaked through on Firefox mobile — fixed inset-0 clips the scroll context to the full viewport |
 | 2026-02-25 | ResizeObserver in ORPDisplay clamps rsvpFontSize to container width | Large stored font preferences caused ORP grid overflow on narrow viewports; ResizeObserver provides exact container width for dynamic clamping |
+| 2026-02-25 | injectManifest strategy with manifest:false keeps project-managed manifest.json | VitePWA compiles src/sw.ts into dist/sw.js; manifest:false prevents auto-generation overwriting the project-curated manifest |
+| 2026-02-25 | globPatterns includes .wasm in VitePWA injectManifest config | Ensures the 1042 KB WASM bundle is included in Workbox precache for full offline operation |
+| 2026-02-25 | share_target extended with title/text/url alongside files — single POST action | Handles both PDF file shares and URL/text shares; service worker distinguishes by checking formData.get('pdf') nullability |
 
 ---
 
@@ -160,9 +164,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 3 complete. All 6 requirements (IMPT-02, IMPT-03, VIEW-01, VIEW-02, VIEW-03, VIEW-04) verified by human. Five UAT/responsiveness fixes resolved: PDF filename display, scroll-center sync, Firefox layout (flex-shrink-0 + fixed inset-0), back button, and responsive RSVP font via ResizeObserver. Production build passes. Phase 4 (PWA + Web Share Target activation) is next.
+**To resume work:** Phase 4 Plan 01 complete. Workbox app-shell SW (src/sw.ts -> dist/sw.js) installed with 9 precache entries including WASM. PNG icons generated (192x192, 512x512, maskable) from brand SVG. manifest.json updated with PNG icon paths and extended share_target (title/text/url/files). Requirements PWA-01 and PWA-02 marked complete. Build exits 0.
 
-**Next action:** Execute Phase 4 plans.
+**Next action:** Execute Phase 4 Plan 02 (iOS fallback UI).
 
 ---
 
@@ -180,3 +184,4 @@ None at this time.
 *Updated: 2026-02-25 by execute-plan (03-01) — Phase 3 Plan 01 complete (rsvp-store font size extension, TextPreview enhanced)*
 *Updated: 2026-02-25 by execute-plan (03-03) — Phase 3 Plan 03 complete (TextPanel, FontSizePanel, PlaybackControls gear toggle)*
 *Updated: 2026-02-25 by execute-plan (03-05) — Phase 3 complete: human verification approved, 5 fixes applied (PDF title, scroll-center, Firefox layout + inset-0, back button, ResizeObserver font clamp)*
+*Updated: 2026-02-25 by execute-plan (04-01) — Phase 4 Plan 01 complete (Workbox SW, PNG icons, manifest updates, PWA-01/PWA-02 complete)*
