@@ -22,8 +22,8 @@
 ### Import
 
 - [ ] **IMPT-01**: User can share a webpage URL from their browser into the app via Web Share Target, and the app extracts readable article text from the URL
-- [ ] **IMPT-02**: User can share a PDF file from another app into the RSVP Reader via Web Share Target
-- [ ] **IMPT-03**: User can open a file (PDF) directly from device storage using a file picker button within the app
+- [x] **IMPT-02**: User can share a PDF file from another app into the RSVP Reader via Web Share Target
+- [x] **IMPT-03**: User can open a file (PDF) directly from device storage using a file picker button within the app
 - [x] **IMPT-04**: User can paste raw text directly into the app and begin reading it immediately via RSVP
 
 ### Document Formats
@@ -34,8 +34,8 @@
 
 - [ ] **VIEW-01**: RSVP word display is shown at the top of the screen; scrollable full document text is shown below with the current word highlighted and auto-scrolled into view
 - [ ] **VIEW-02**: The full text area is visually dimmed/darkened while RSVP is actively playing, reducing distraction from the focal display
-- [ ] **VIEW-03**: After importing a document, user sees a text preview of the extracted content before starting RSVP, allowing them to confirm extraction quality
-- [ ] **VIEW-04**: User can adjust font size for both the RSVP word display and the full text panel
+- [x] **VIEW-03**: After importing a document, user sees a text preview of the extracted content before starting RSVP, allowing them to confirm extraction quality
+- [x] **VIEW-04**: User can adjust font size for both the RSVP word display and the full text panel
 
 ### PWA
 
@@ -89,14 +89,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CTRL-03 | Phase 2 | Complete |
 | CTRL-04 | Phase 2 | Complete |
 | IMPT-01 | Phase 4 | Pending |
-| IMPT-02 | Phase 3 | Pending |
-| IMPT-03 | Phase 3 | Pending |
+| IMPT-02 | Phase 3 | Complete |
+| IMPT-03 | Phase 3 | Complete |
 | IMPT-04 | Phase 1 | Complete (01-05: EntryScreen paste path + TextPreview + RSVPPlaceholder) |
 | DOCF-01 | Phase 1 | Complete (01-04: WASM PDF pipeline; 01-05: EntryScreen UI + error handling) |
 | VIEW-01 | Phase 3 | Pending |
 | VIEW-02 | Phase 3 | Pending |
-| VIEW-03 | Phase 3 | Pending |
-| VIEW-04 | Phase 3 | Pending |
+| VIEW-03 | Phase 3 | Complete |
+| VIEW-04 | Phase 3 | Complete |
 | PWA-01 | Phase 4 | Pending |
 | PWA-02 | Phase 4 | Pending |
 | PWA-03 | Phase 4 | Pending |
