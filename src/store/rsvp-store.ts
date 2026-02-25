@@ -23,6 +23,10 @@ export interface RsvpStore {
   // Settings (Phase 2 — persisted to localStorage)
   wpm: number // default: 250
 
+  // Settings (Phase 3 — persisted to localStorage)
+  rsvpFontSize: number  // RSVP word font size in px; default 72 (matches existing 4.5rem in ORPDisplay)
+  textFontSize: number  // Full text panel font size in px; default 16 (text-base equivalent)
+
   // Actions — Phase 1
   setDocument: (words: string[], title: string | null) => void
   setWorkerReady: (ready: boolean) => void
@@ -32,6 +36,10 @@ export interface RsvpStore {
   setIsPlaying: (playing: boolean) => void
   setJumpSize: (size: number) => void
   setWpm: (wpm: number) => void
+
+  // Actions — Phase 3 font size
+  setRsvpFontSize: (size: number) => void
+  setTextFontSize: (size: number) => void
 
   // Reset — resets document AND playback state (not wpm — that's persisted separately)
   reset: () => void
@@ -62,6 +70,10 @@ export const useRsvpStore = create<RsvpStore>()(
       // Settings (Phase 2 — persisted)
       wpm: 250,
 
+      // Settings (Phase 3 — persisted)
+      rsvpFontSize: 72,
+      textFontSize: 16,
+
       // Actions — Phase 1
       setDocument: (words, title) =>
         set({ wordList: words, documentTitle: title, currentWordIndex: 0, isPlaying: false }),
@@ -82,13 +94,21 @@ export const useRsvpStore = create<RsvpStore>()(
       setWpm: (wpm) =>
         set({ wpm }),
 
+      // Actions — Phase 3 font size (clamped on write)
+      setRsvpFontSize: (size) => set({ rsvpFontSize: Math.max(48, Math.min(120, size)) }),
+      setTextFontSize: (size) => set({ textFontSize: Math.max(12, Math.min(32, size)) }),
+
       // Reset — resets ALL fields except wpm (wpm persists via middleware)
       reset: () => set(ephemeralDefaults),
     }),
     {
       name: 'rsvp-settings',
       storage: createJSONStorage(() => localStorage),
-      partialize: (state) => ({ wpm: state.wpm }),
+      partialize: (state) => ({
+        wpm: state.wpm,
+        rsvpFontSize: state.rsvpFontSize,
+        textFontSize: state.textFontSize,
+      }),
     }
   )
 )
