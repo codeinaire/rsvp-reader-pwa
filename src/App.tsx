@@ -3,13 +3,30 @@ import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
 import EntryScreen from './components/EntryScreen/EntryScreen'
 import TextPreview from './components/TextPreview/TextPreview'
 import RSVPReader from './components/RSVPReader/RSVPReader'
+import UrlLoader from './components/UrlLoader/UrlLoader'
 import { documentService } from './services/document-service'
 import { useRsvpStore } from './store/rsvp-store'
+import { hydrateLastDocument } from './lib/document-persistence'
+
+/**
+ * Returns true if str is a valid http:// or https:// URL.
+ * Used by ShareTargetHandler to guard GET-share query params.
+ */
+function isValidHttpUrl(str: string): boolean {
+  try {
+    const u = new URL(str)
+    return u.protocol === 'http:' || u.protocol === 'https:'
+  } catch {
+    return false
+  }
+}
 
 /**
  * ShareTargetHandler — registered inside BrowserRouter so useNavigate is available.
  * Registers the scoped share-target service worker (IMPT-02) and listens for
  * SHARED_PDF messages sent by the SW after Android Chrome delivers a shared PDF.
+ * Also handles GET URL shares (?url= or ?text= query params) from desktop Chrome
+ * and Android URL-sharing intents.
  * Renders nothing — side effects only.
  */
 function ShareTargetHandler() {
@@ -62,6 +79,45 @@ function ShareTargetHandler() {
     }
   }, [navigate, setDocument]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    // Handle GET share target — URL/text shared from desktop Chrome or Android URL intent
+    // On Android, the URL often arrives in the 'text' field (Android's share intent maps URLs there)
+    const params = new URLSearchParams(window.location.search)
+    const rawUrl = params.get('url') || ''
+    const rawText = params.get('text') || ''
+    const candidate = rawUrl || rawText
+
+    if (candidate && isValidHttpUrl(candidate)) {
+      navigate('/load-url', { state: { url: candidate }, replace: true })
+      // Clean query params from the URL bar
+      window.history.replaceState({}, '', '/')
+    }
+  }, [navigate]) // runs once on mount
+
+  return null
+}
+
+/**
+ * DocumentHydrator — registered inside BrowserRouter alongside ShareTargetHandler.
+ * On mount, checks IndexedDB for the last persisted document and loads it into
+ * the store if present and no document is already loaded. Enables offline reading.
+ * Renders nothing — side effects only.
+ */
+function DocumentHydrator() {
+  const setDocument = useRsvpStore((s) => s.setDocument)
+  const wordList = useRsvpStore((s) => s.wordList)
+
+  useEffect(() => {
+    // Only hydrate if no document is already loaded (don't overwrite a freshly imported doc)
+    if (wordList.length > 0) return
+
+    hydrateLastDocument().then((saved) => {
+      if (saved) {
+        setDocument(saved.words, saved.title)
+      }
+    })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   return null
 }
 
@@ -69,6 +125,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ShareTargetHandler />
+      <DocumentHydrator />
       <Routes>
         {/*
           Route: Entry screen
@@ -81,6 +138,11 @@ export default function App() {
           Route: Text preview — extracted text quality check + word count
         */}
         <Route path="/preview" element={<TextPreview />} />
+
+        {/*
+          Route: URL loader — fetches and extracts article from a shared or entered URL
+        */}
+        <Route path="/load-url" element={<UrlLoader />} />
 
         {/*
           Route: RSVP reader — full engine assembled in Phase 2 (Plan 05)
