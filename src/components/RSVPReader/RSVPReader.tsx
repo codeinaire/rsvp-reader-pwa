@@ -5,6 +5,7 @@ import { computeWordDelay } from '../../lib/scheduler'
 import { ORPDisplay } from './ORPDisplay'
 import { PlaybackControls } from './PlaybackControls'
 import { ProgressBar } from './ProgressBar'
+import { TextPanel } from './TextPanel'
 
 /**
  * RSVPReader — the complete RSVP reading screen at /read.
@@ -152,19 +153,22 @@ export default function RSVPReader() {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center px-4 gap-6">
-      {/* Progress row — above word panel */}
-      <ProgressBar />
-
-      {/* Dark word panel — hero display */}
-      <div className="bg-gray-900 rounded-2xl p-10 flex items-center justify-center">
+    <div className="flex flex-col h-dvh bg-gray-950 overflow-hidden">
+      {/* RSVP zone — sticky top ~40% of viewport */}
+      <div className="h-[40dvh] flex-shrink-0 sticky top-0 z-10 bg-gray-950
+                      flex flex-col items-center justify-center gap-4 px-4">
+        <ProgressBar />
         <ORPDisplay word={wordList[currentWordIndex] ?? ''} />
+        <div className="w-full max-w-xl">
+          <PlaybackControls />
+        </div>
       </div>
 
-      {/* Controls row — directly below dark panel */}
-      <div className="w-full max-w-xl">
-        <PlaybackControls />
-      </div>
+      {/* Divider between RSVP zone and text panel */}
+      <div className="border-t border-gray-800 flex-shrink-0" />
+
+      {/* Text panel — fills remaining 60% of viewport, scrolls independently */}
+      <TextPanel />
     </div>
   )
 }
