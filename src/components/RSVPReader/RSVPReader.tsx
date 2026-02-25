@@ -153,7 +153,7 @@ export default function RSVPReader() {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="flex flex-col h-dvh bg-gray-950 overflow-hidden">
+    <div className="fixed inset-0 flex flex-col bg-gray-950">
       {/* RSVP zone — flex-shrink-0 keeps it fixed at top in all browsers (including Firefox mobile) */}
       <div className="h-[40dvh] flex-shrink-0 bg-gray-950 relative
                       flex flex-col items-center justify-center gap-4 px-4">
