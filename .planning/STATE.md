@@ -26,8 +26,8 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-25T03:49:45.446Z
-**Stopped at:** Completed 03-01-PLAN.md
+**Last session:** 2026-02-25T03:54:16.770Z
+**Stopped at:** Completed 03-03-PLAN.md
 
 ---
 
@@ -57,6 +57,7 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
 | Phase 02 P05 | 2 | 2 tasks | 2 files |
 | Phase 03 P02 | 4 | 2 tasks | 4 files |
 | Phase 03 P01 | 2 | 2 tasks | 2 files |
+| Phase 03 P03 | 2 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -124,6 +125,10 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-25 | Web Share Target architecture complete in Plan 02; activation requires Phase 4 PWA | Share target becomes user-visible only after PWA installation; architecture is correct and ready |
 | 2026-02-25 | Pages row omitted from TextPreview metadata card | pageCount not in ParseResult yet; omit row rather than show static placeholder |
 | 2026-02-25 | Persistent error on wordCount < 10 in TextPreview | Defense-in-depth alongside EntryScreen guard; error requires explicit user action to dismiss |
+| 2026-02-25 | Direct DOM mutation for word highlight in TextPanel | Avoids O(n) React re-render at 300+ WPM with 10,000+ word documents; prevIndexRef tracks previous span for O(1) removal |
+| 2026-02-25 | Callback ref pattern for word spans in TextPanel | Single mutable array populated on render; avoids thousands of individual useRef objects |
+| 2026-02-25 | scrollIntoView block:nearest in TextPanel | Only scrolls when word would go off-screen; prevents jarring continuous centering |
+| 2026-02-25 | FontSizePanel absolute bottom-full overlay in PlaybackControls | Floats above controls without affecting layout flow; gear icon toggles via local useState |
 
 ---
 
@@ -144,9 +149,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 3 Plan 02 complete. Web Share Target architecture implemented: manifest.json with share_target, share-target-sw.js, and App.tsx ShareTargetHandler. IMPT-02 requirement complete. Continue with Phase 3 Plan 03.
+**To resume work:** Phase 3 Plan 03 complete. TextPanel, FontSizePanel, and updated PlaybackControls created. VIEW-01, VIEW-02, VIEW-04 requirements complete. Continue with Phase 3 Plan 04.
 
-**Next action:** Execute 03-03-PLAN.md — next Phase 3 plan.
+**Next action:** Execute 03-04-PLAN.md — dual-view RSVPReader layout rewrite using TextPanel.
 
 ---
 
@@ -162,3 +167,4 @@ None at this time.
 *Updated: 2026-02-24 by execute-plan (02-05) — Phase 2 Plan 05 complete (RSVPReader assembled, /read route wired)*
 *Updated: 2026-02-25 by execute-plan (03-02) — Phase 3 Plan 02 complete (Web Share Target: manifest.json, share-target-sw.js, App.tsx ShareTargetHandler)*
 *Updated: 2026-02-25 by execute-plan (03-01) — Phase 3 Plan 01 complete (rsvp-store font size extension, TextPreview enhanced)*
+*Updated: 2026-02-25 by execute-plan (03-03) — Phase 3 Plan 03 complete (TextPanel, FontSizePanel, PlaybackControls gear toggle)*
