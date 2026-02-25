@@ -26,8 +26,8 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-25T03:57:56.146Z
-**Stopped at:** Completed 03-04-PLAN.md
+**Last session:** 2026-02-25T04:30:07.175Z
+**Stopped at:** Completed 03-05-PLAN.md — Phase 3 complete
 
 ---
 
@@ -59,6 +59,7 @@ Progress: [x][ ][ ][ ] 1/4 phases complete
 | Phase 03 P01 | 2 | 2 tasks | 2 files |
 | Phase 03 P03 | 2 | 2 tasks | 3 files |
 | Phase 03 P04 | 2 | 2 tasks | 2 files |
+| Phase 03 P05 | 20 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -133,6 +134,10 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-25 | Removed nested dark panel from ORPDisplay (bg-gray-900 roundedl-2xl py-10 px-12) | RSVP zone container bg-gray-950 provides background context — double-card visual eliminated |
 | 2026-02-25 | sticky top-0 on RSVP zone inside overflow-hidden flex container | Correct pattern: scroll context is TextPanel's own overflow-y-auto, not window — position:fixed not needed |
 | 2026-02-25 | fontSize: rsvpFontSize (number) in ORPDisplay inline style | React/CSS treats numeric inline style value as pixels automatically; no 'px' suffix required |
+| 2026-02-25 | file.name fallback for PDF title when parse_pdf returns null | Fixes "Pasted text" label for imported PDFs — filename (extension stripped) used when WASM parser has no embedded title metadata |
+| 2026-02-25 | scrollIntoView block:center replaces block:nearest in TextPanel | UAT fix: word stays vertically centered during RSVP playback for a more natural reading experience |
+| 2026-02-25 | flex-shrink-0 on RSVP zone replaces sticky top-0 z-10 | UAT fix: Firefox mobile sticky broken; flex-shrink-0 in h-dvh overflow-hidden flex-col parent is the correct cross-browser pattern |
+| 2026-02-25 | Back button added to /read reader view (absolute top-left of RSVP zone) | UAT fix: users had no way to return home from reader; absolute-positioned ← Back button uses useNavigate() without disrupting layout |
 
 ---
 
@@ -153,9 +158,9 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 3 Plan 04 complete. Dual-view RSVPReader layout assembled: sticky RSVP zone (h-[40dvh]) + TextPanel. ORPDisplay reads rsvpFontSize from store. All Phase 3 components wired into /read screen. Continue with Phase 3 Plan 05.
+**To resume work:** Phase 3 complete. All 6 requirements (IMPT-02, IMPT-03, VIEW-01, VIEW-02, VIEW-03, VIEW-04) verified by human. Four UAT issues resolved: PDF filename display, scroll-center sync, Firefox sticky layout, back button. Production build passes. Phase 4 (PWA + Web Share Target activation) is next.
 
-**Next action:** Execute 03-05-PLAN.md (if exists) or proceed to Phase 4.
+**Next action:** Execute Phase 4 plans.
 
 ---
 
@@ -172,3 +177,4 @@ None at this time.
 *Updated: 2026-02-25 by execute-plan (03-02) — Phase 3 Plan 02 complete (Web Share Target: manifest.json, share-target-sw.js, App.tsx ShareTargetHandler)*
 *Updated: 2026-02-25 by execute-plan (03-01) — Phase 3 Plan 01 complete (rsvp-store font size extension, TextPreview enhanced)*
 *Updated: 2026-02-25 by execute-plan (03-03) — Phase 3 Plan 03 complete (TextPanel, FontSizePanel, PlaybackControls gear toggle)*
+*Updated: 2026-02-25 by execute-plan (03-05) — Phase 3 complete: human verification passed, 4 UAT fixes applied (PDF title, scroll-center, Firefox layout, back button)*
