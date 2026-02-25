@@ -16,8 +16,8 @@ export function ORPDisplay({ word }: ORPDisplayProps) {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '14ch 1ch 20ch',
-          fontSize: rsvpFontSize,
+          gridTemplateColumns: 'min(14ch, 38vw) 1ch min(20ch, 50vw)',
+          fontSize: `clamp(18px, 5vw, ${rsvpFontSize}px)`,
           lineHeight: 1,
         }}
         className="font-mono items-center"
