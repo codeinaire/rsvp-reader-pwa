@@ -1,7 +1,7 @@
 # Project State: RSVP Reader
 
-**Last updated:** 2026-02-24
-**Updated by:** execute-plan (02-04)
+**Last updated:** 2026-02-25
+**Updated by:** execute-plan (03-05)
 
 ---
 
@@ -17,17 +17,17 @@
 
 ## Current Position
 
-**Phase:** 2 — RSVP Playback Engine
-**Plan:** 06 (next to execute)
-**Status:** Milestone complete
+**Phase:** 4 — PWA + Web Share Target
+**Plan:** 01 (next to execute)
+**Status:** Phase 3 complete — Phase 4 ready
 
 ```
-Progress: [x][ ][ ][ ] 1/4 phases complete
+Progress: [x][ ][x][ ] 2/4 phases complete
           Ph1 Ph2 Ph3 Ph4
 ```
 
-**Last session:** 2026-02-25T04:30:07.175Z
-**Stopped at:** Completed 03-05-PLAN.md — Phase 3 complete
+**Last session:** 2026-02-25T04:50:00Z
+**Stopped at:** Completed 03-05-PLAN.md — Phase 3 human verification approved, all UAT fixes committed
 
 ---
 
@@ -138,6 +138,8 @@ The workspace contains `rust-image-tools` which demonstrates the WASM Worker pat
 | 2026-02-25 | scrollIntoView block:center replaces block:nearest in TextPanel | UAT fix: word stays vertically centered during RSVP playback for a more natural reading experience |
 | 2026-02-25 | flex-shrink-0 on RSVP zone replaces sticky top-0 z-10 | UAT fix: Firefox mobile sticky broken; flex-shrink-0 in h-dvh overflow-hidden flex-col parent is the correct cross-browser pattern |
 | 2026-02-25 | Back button added to /read reader view (absolute top-left of RSVP zone) | UAT fix: users had no way to return home from reader; absolute-positioned ← Back button uses useNavigate() without disrupting layout |
+| 2026-02-25 | fixed inset-0 layout on RSVPReader root container | UAT fix: body scroll leaked through on Firefox mobile — fixed inset-0 clips the scroll context to the full viewport |
+| 2026-02-25 | ResizeObserver in ORPDisplay clamps rsvpFontSize to container width | Large stored font preferences caused ORP grid overflow on narrow viewports; ResizeObserver provides exact container width for dynamic clamping |
 
 ---
 
@@ -158,7 +160,7 @@ None at this time.
 
 ## Session Continuity
 
-**To resume work:** Phase 3 complete. All 6 requirements (IMPT-02, IMPT-03, VIEW-01, VIEW-02, VIEW-03, VIEW-04) verified by human. Four UAT issues resolved: PDF filename display, scroll-center sync, Firefox sticky layout, back button. Production build passes. Phase 4 (PWA + Web Share Target activation) is next.
+**To resume work:** Phase 3 complete. All 6 requirements (IMPT-02, IMPT-03, VIEW-01, VIEW-02, VIEW-03, VIEW-04) verified by human. Five UAT/responsiveness fixes resolved: PDF filename display, scroll-center sync, Firefox layout (flex-shrink-0 + fixed inset-0), back button, and responsive RSVP font via ResizeObserver. Production build passes. Phase 4 (PWA + Web Share Target activation) is next.
 
 **Next action:** Execute Phase 4 plans.
 
@@ -177,4 +179,4 @@ None at this time.
 *Updated: 2026-02-25 by execute-plan (03-02) — Phase 3 Plan 02 complete (Web Share Target: manifest.json, share-target-sw.js, App.tsx ShareTargetHandler)*
 *Updated: 2026-02-25 by execute-plan (03-01) — Phase 3 Plan 01 complete (rsvp-store font size extension, TextPreview enhanced)*
 *Updated: 2026-02-25 by execute-plan (03-03) — Phase 3 Plan 03 complete (TextPanel, FontSizePanel, PlaybackControls gear toggle)*
-*Updated: 2026-02-25 by execute-plan (03-05) — Phase 3 complete: human verification passed, 4 UAT fixes applied (PDF title, scroll-center, Firefox layout, back button)*
+*Updated: 2026-02-25 by execute-plan (03-05) — Phase 3 complete: human verification approved, 5 fixes applied (PDF title, scroll-center, Firefox layout + inset-0, back button, ResizeObserver font clamp)*

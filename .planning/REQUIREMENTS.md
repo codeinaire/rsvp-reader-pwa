@@ -32,8 +32,8 @@
 
 ### Reading View
 
-- [ ] **VIEW-01**: RSVP word display is shown at the top of the screen; scrollable full document text is shown below with the current word highlighted and auto-scrolled into view
-- [ ] **VIEW-02**: The full text area is visually dimmed/darkened while RSVP is actively playing, reducing distraction from the focal display
+- [x] **VIEW-01**: RSVP word display is shown at the top of the screen; scrollable full document text is shown below with the current word highlighted and auto-scrolled into view
+- [x] **VIEW-02**: The full text area is visually dimmed/darkened while RSVP is actively playing, reducing distraction from the focal display
 - [x] **VIEW-03**: After importing a document, user sees a text preview of the extracted content before starting RSVP, allowing them to confirm extraction quality
 - [x] **VIEW-04**: User can adjust font size for both the RSVP word display and the full text panel
 
@@ -93,8 +93,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | IMPT-03 | Phase 3 | Complete |
 | IMPT-04 | Phase 1 | Complete (01-05: EntryScreen paste path + TextPreview + RSVPPlaceholder) |
 | DOCF-01 | Phase 1 | Complete (01-04: WASM PDF pipeline; 01-05: EntryScreen UI + error handling) |
-| VIEW-01 | Phase 3 | Pending |
-| VIEW-02 | Phase 3 | Pending |
+| VIEW-01 | Phase 3 | Complete |
+| VIEW-02 | Phase 3 | Complete |
 | VIEW-03 | Phase 3 | Complete |
 | VIEW-04 | Phase 3 | Complete |
 | PWA-01 | Phase 4 | Pending |

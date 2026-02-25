@@ -11,7 +11,7 @@
 
 - [x] **Phase 1: WASM Pipeline + Document Service** - Prove Rust-to-WASM compilation works, validate PDF crate selection, establish the parsing infrastructure that all import flows depend on
 - [ ] **Phase 2: RSVP Playback Engine** - Build the core reading mechanic: ORP display, timing scheduler, playback controls, and progress tracking
-- [ ] **Phase 3: Import UI + Reading View** - Wire real document import to the reader and deliver the complete dual-view reading experience
+- [x] **Phase 3: Import UI + Reading View** - Wire real document import to the reader and deliver the complete dual-view reading experience
 - [ ] **Phase 4: PWA + Web Share Target** - Make the app installable, offline-capable, and reachable via the OS share sheet with iOS fallback
 
 ---
@@ -86,14 +86,14 @@ Plans:
 4. User can adjust font size for both the RSVP word display and the full text panel independently
 5. On mobile, the layout is usable: the RSVP display and controls are reachable without horizontal scrolling and the text panel is scrollable
 
-**Plans:** 3/5 plans executed
+**Plans:** 5/5 plans complete
 
 Plans:
-- [ ] 03-01-PLAN.md — Zustand store font size extension + TextPreview enhancement (metadata, fade preview, error state)
-- [ ] 03-02-PLAN.md — Web Share Target: manifest.json + scoped service worker + App.tsx message listener
-- [ ] 03-03-PLAN.md — TextPanel (word highlight, auto-scroll, dimming) + FontSizePanel + PlaybackControls gear icon
-- [ ] 03-04-PLAN.md — RSVPReader dual-view layout rewrite + ORPDisplay dynamic font size
-- [ ] 03-05-PLAN.md — Phase 3 human verification against all six requirements (has checkpoint)
+- [x] 03-01-PLAN.md — Zustand store font size extension + TextPreview enhancement (metadata, fade preview, error state)
+- [x] 03-02-PLAN.md — Web Share Target: manifest.json + scoped service worker + App.tsx message listener
+- [x] 03-03-PLAN.md — TextPanel (word highlight, auto-scroll, dimming) + FontSizePanel + PlaybackControls gear icon
+- [x] 03-04-PLAN.md — RSVPReader dual-view layout rewrite + ORPDisplay dynamic font size
+- [x] 03-05-PLAN.md — Phase 3 human verification against all six requirements (has checkpoint)
 
 ---
 
@@ -121,7 +121,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. WASM Pipeline + Document Service | 6/6 | Complete    | 2026-02-23 |
 | 2. RSVP Playback Engine | 5/6 | In Progress|  |
-| 3. Import UI + Reading View | 3/5 | In Progress|  |
+| 3. Import UI + Reading View | 5/5 | Complete    | 2026-02-25 |
 | 4. PWA + Web Share Target | 0/? | Not started | - |
 
 ---
@@ -156,4 +156,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-02-23*
-*Last updated: 2026-02-23 — Phase 1 complete: all four success criteria human-verified in production build (6/6 plans done)*
+*Last updated: 2026-02-25 — Phase 3 complete: all six requirements human-verified in production build (5/5 plans done)*
