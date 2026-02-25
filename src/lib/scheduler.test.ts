@@ -44,24 +44,29 @@ describe('computeWordDelay', () => {
     expect(computeWordDelay('transformer', 300)).toBe(300)
   })
 
-  it('applies 1.5x sentence multiplier for word ending with period', () => {
-    // "end." -> 3 letters -> multiplier 1.0, sentence 1.5 -> 200 * 1.0 * 1.5 = 300
-    expect(computeWordDelay('end.', 300)).toBe(300)
+  it('applies 2.5x sentence multiplier for word ending with period', () => {
+    // "end." -> 3 letters -> multiplier 1.0, sentence 2.5 -> 200 * 1.0 * 2.5 = 500
+    expect(computeWordDelay('end.', 300)).toBe(500)
   })
 
-  it('applies 1.5x sentence multiplier for word ending with exclamation', () => {
-    // "done!" -> 4 letters -> multiplier 1.0, sentence 1.5 -> 200 * 1.0 * 1.5 = 300
-    expect(computeWordDelay('done!', 300)).toBe(300)
+  it('applies 2.5x sentence multiplier for word ending with exclamation', () => {
+    // "done!" -> 4 letters -> multiplier 1.0, sentence 2.5 -> 200 * 1.0 * 2.5 = 500
+    expect(computeWordDelay('done!', 300)).toBe(500)
   })
 
-  it('applies 1.5x sentence multiplier for word ending with question mark', () => {
-    // "really?" -> 6 letters -> multiplier 1.0, sentence 1.5 -> 200 * 1.0 * 1.5 = 300
-    expect(computeWordDelay('really?', 300)).toBe(300)
+  it('applies 2.5x sentence multiplier for word ending with question mark', () => {
+    // "really?" -> 6 letters -> multiplier 1.0, sentence 2.5 -> 200 * 1.0 * 2.5 = 500
+    expect(computeWordDelay('really?', 300)).toBe(500)
   })
 
-  it('applies 1.5x sentence multiplier for word with ellipsis (word...)', () => {
-    // "word..." -> letters="word" (4), sentence ends with . -> 200 * 1.0 * 1.5 = 300
-    expect(computeWordDelay('word...', 300)).toBe(300)
+  it('applies 2.5x sentence multiplier for word with ellipsis (word...)', () => {
+    // "word..." -> letters="word" (4), sentence ends with . -> 200 * 1.0 * 2.5 = 500
+    expect(computeWordDelay('word...', 300)).toBe(500)
+  })
+
+  it('applies 1.3x comma multiplier for word ending with comma', () => {
+    // "hello," -> 5 letters -> multiplier 1.0, comma 1.3 -> 200 * 1.0 * 1.3 = 260
+    expect(computeWordDelay('hello,', 300)).toBe(260)
   })
 
   it('verifies WPM math accuracy at 600 WPM', () => {

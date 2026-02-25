@@ -38,8 +38,10 @@ export function computeWordDelay(word: string, wpm: number): number {
     lengthMult = 1.5
   }
 
-  // Sentence multiplier: add pause after sentence-ending punctuation
-  const sentenceMult = /[.!?]['"]?\s*$/.test(word) ? 1.5 : 1.0
+  // Pause multiplier: sentence-ending gets a long pause, commas a shorter one
+  let pauseMult = 1.0
+  if (/[.!?]['"]?\s*$/.test(word)) pauseMult = 2.5
+  else if (/,\s*$/.test(word)) pauseMult = 1.3
 
-  return baseMs * lengthMult * sentenceMult
+  return baseMs * lengthMult * pauseMult
 }

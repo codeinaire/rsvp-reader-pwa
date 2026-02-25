@@ -28,17 +28,22 @@ export function PlaybackControls() {
     <div className="flex items-center gap-3 flex-wrap justify-center">
       {/* Jump back + jump-size stepper + play/pause + jump forward */}
       <div className="flex items-center gap-2">
-        <button onClick={jumpBack} aria-label="Jump back">«</button>
+        <button onClick={jumpBack} aria-label="Jump back"
+          className="px-2 py-1 text-gray-300 hover:text-white rounded-md border border-gray-700 hover:border-gray-500 transition-colors">«</button>
         {/* Jump-size stepper: [-] [N] [+] */}
         <div className="flex items-center gap-1">
-          <button onClick={() => setJumpSize(Math.max(1, jumpSize - 5))} aria-label="Decrease jump size">-</button>
+          <button onClick={() => setJumpSize(Math.max(1, jumpSize - 5))} aria-label="Decrease jump size"
+            className="px-2 py-1 text-gray-300 hover:text-white rounded-md border border-gray-700 hover:border-gray-500 transition-colors">-</button>
           <span className="text-sm text-gray-400 w-6 text-center tabular-nums">{jumpSize}</span>
-          <button onClick={() => setJumpSize(Math.min(50, jumpSize + 5))} aria-label="Increase jump size">+</button>
+          <button onClick={() => setJumpSize(Math.min(50, jumpSize + 5))} aria-label="Increase jump size"
+            className="px-2 py-1 text-gray-300 hover:text-white rounded-md border border-gray-700 hover:border-gray-500 transition-colors">+</button>
         </div>
-        <button onClick={togglePlay} aria-label={isPlaying ? 'Pause' : 'Play'}>
+        <button onClick={togglePlay} aria-label={isPlaying ? 'Pause' : 'Play'}
+          className="px-3 py-1 text-gray-300 hover:text-white rounded-md border border-gray-700 hover:border-gray-500 transition-colors">
           {isPlaying ? '⏸' : '▶'}
         </button>
-        <button onClick={jumpForward} aria-label="Jump forward">»</button>
+        <button onClick={jumpForward} aria-label="Jump forward"
+          className="px-2 py-1 text-gray-300 hover:text-white rounded-md border border-gray-700 hover:border-gray-500 transition-colors">»</button>
       </div>
 
       {/* WPM slider */}

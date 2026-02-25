@@ -64,7 +64,7 @@ export const useRsvpStore = create<RsvpStore>()(
 
       // Actions — Phase 1
       setDocument: (words, title) =>
-        set({ wordList: words, documentTitle: title }),
+        set({ wordList: words, documentTitle: title, currentWordIndex: 0, isPlaying: false }),
 
       setWorkerReady: (ready) =>
         set({ isWorkerReady: ready }),
