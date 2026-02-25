@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { documentService } from '../../services/document-service'
 import { useRsvpStore } from '../../store/rsvp-store'
+import { persistDocument } from '../../lib/document-persistence'
 
 export default function EntryScreen() {
   const navigate = useNavigate()
@@ -14,6 +15,8 @@ export default function EntryScreen() {
   const [showPatience, setShowPatience] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [pasteText, setPasteText] = useState('')
+  const [urlInput, setUrlInput] = useState('')
+  const [isUrlOpen, setIsUrlOpen] = useState(false)
 
   // AbortController-style cancel signal for in-progress parses
   const cancelRef = useRef(false)
@@ -70,6 +73,8 @@ export default function EntryScreen() {
       // Use embedded PDF title if available; fall back to filename (strip extension)
       const title = result.title ?? file.name.replace(/\.[^.]+$/, '')
       setDocument(result.words, title)
+      // Fire-and-forget persistence — user navigates immediately; background write
+      persistDocument(result.words, title)
       navigate('/preview')
     } catch (e) {
       if (cancelRef.current) return
@@ -98,7 +103,26 @@ export default function EntryScreen() {
       return
     }
     setDocument(result.words, null)
+    // Fire-and-forget persistence — user navigates immediately; background write
+    persistDocument(result.words, null)
     navigate('/preview')
+  }
+
+  function handleUrlFetch() {
+    const trimmed = urlInput.trim()
+    if (!trimmed) return
+    // Validate: must be http or https URL
+    try {
+      const u = new URL(trimmed)
+      if (u.protocol !== 'http:' && u.protocol !== 'https:') {
+        showError('Please enter a valid http:// or https:// URL.')
+        return
+      }
+    } catch {
+      showError('Please enter a valid URL (e.g. https://example.com/article).')
+      return
+    }
+    navigate('/load-url', { state: { url: trimmed } })
   }
 
   // Drag and drop handlers
@@ -246,6 +270,36 @@ export default function EntryScreen() {
             <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
           </div>
         )}
+
+        {/* URL input — primary fallback for iOS (no Share Target), also desktop convenience */}
+        <details
+          className="w-full max-w-md"
+          open={isUrlOpen}
+          onToggle={(e) => setIsUrlOpen((e.target as HTMLDetailsElement).open)}
+        >
+          <summary className="cursor-pointer text-sm text-gray-400 hover:text-gray-200 select-none py-2">
+            Or enter a URL
+          </summary>
+          <div className="mt-2 flex gap-2">
+            <input
+              type="url"
+              value={urlInput}
+              onChange={(e) => setUrlInput(e.target.value)}
+              placeholder="https://example.com/article"
+              className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-500"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleUrlFetch()
+              }}
+            />
+            <button
+              onClick={handleUrlFetch}
+              disabled={!urlInput.trim()}
+              className="px-4 py-2 bg-red-600 hover:bg-red-500 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm rounded-lg transition-colors"
+            >
+              Fetch
+            </button>
+          </div>
+        </details>
 
         {/* Paste text — SECONDARY import path */}
         <details className="w-full max-w-md">
