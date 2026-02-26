@@ -129,6 +129,7 @@ Plans:
 | 2. RSVP Playback Engine | 5/6 | In Progress|  |
 | 3. Import UI + Reading View | 5/5 | Complete    | 2026-02-25 |
 | 4. PWA + Web Share Target | 3/4 | In Progress|  |
+| 5. Browser Extension | 0/? | Not started | - |
 
 ---
 
@@ -158,6 +159,22 @@ Plans:
 | PWA-03 | Phase 4 | iOS fallback: file picker import when Share Target unavailable |
 
 **Coverage: 20/20 v1 requirements mapped.**
+
+### Phase 5: Browser Extension
+
+**Goal:** The app is packaged and distributed as a cross-browser extension for Chrome, Firefox, and Safari. A content script extracts the current page's text directly from the DOM (no CORS), feeds it into the existing RSVP engine, and opens the reader in a popup or side panel. The existing PWA remains available for mobile and PDF import; the extension complements it for desktop web reading.
+
+**Depends on:** Phase 4
+
+**Requirements:** EXT-01, EXT-02, EXT-03, EXT-04
+
+**Success Criteria** (what must be TRUE):
+1. User can click the extension icon on any webpage in Chrome, Firefox, or Safari and start reading the page in the RSVP reader — no copy-paste required
+2. The extension packages and loads the existing WASM parser and React RSVP components without modification to the core reading engine
+3. The extension can be loaded unpacked in Chrome DevTools and Firefox about:debugging for development testing
+4. Text extraction from a standard article page produces the same word array as pasting the text manually would
+
+**Plans:** TBD
 
 ---
 

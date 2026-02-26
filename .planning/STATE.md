@@ -67,6 +67,10 @@ Progress: [x][ ][x][ ] 2/4 phases complete
 
 ## Accumulated Context
 
+### Roadmap Evolution
+
+- Phase 5 added: Browser Extension (Chrome, Firefox, Safari) — cross-browser extension using content scripts for CORS-free page text extraction, complementing the PWA for desktop web reading
+
 ### Architecture Decisions
 
 - **Scheduler:** `performance.now()`-based deadline scheduler required from day one. `setInterval` counter drift is imperceptible in demos but noticeable during real reading. No exceptions.
