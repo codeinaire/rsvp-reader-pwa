@@ -10,6 +10,15 @@ declare let self: ServiceWorkerGlobalScope
 // ServiceWorkerGlobalScope interface in this compilation unit; both methods exist at runtime.
 self.addEventListener('install', () => void self.skipWaiting())
 
+// Immediately claim all open tabs so this SW controls the current page without
+// requiring a reload. Without this, skipWaiting activates the SW but it only
+// controls *new* navigations — the current tab stays uncontrolled and offline fails.
+// @ts-expect-error — same TypeScript scope issue as above; clients.claim() is standard spec
+self.addEventListener('activate', (event: ExtendableEvent) =>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  event.waitUntil((self as unknown as any).clients.claim()),
+)
+
 // Remove caches from outdated versions
 cleanupOutdatedCaches()
 
